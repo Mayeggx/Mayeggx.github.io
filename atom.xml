@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Mayeggx.github.io</id>
     <title>十七号十七型十七式中转站</title>
-    <updated>2021-04-26T07:57:03.086Z</updated>
+    <updated>2021-04-26T08:01:41.701Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Mayeggx.github.io"/>
     <link rel="self" href="https://Mayeggx.github.io/atom.xml"/>
@@ -15,7 +15,8 @@
         <link href="https://Mayeggx.github.io/post/zhong-zhuan-zhan-ni-hao/">
         </link>
         <updated>2021-04-26T07:53:46.000Z</updated>
-        <content type="html"><![CDATA[<p>你好，我是<strong>Mayegg</strong>，这里是我的个人小站，目前作为博客使用。</p>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://Mayeggx.github.io/post-images/1619423927418.jpg" alt="" loading="lazy"></figure>
+<p>你好，我是<strong>Mayegg</strong>，这里是我的个人小站，目前作为博客使用。</p>
 <p>如果你恰巧打开了它，说明你网络正好<s>或者掌握了科学的方法</s>，并且你我都有要分享的念头。</p>
 <p>在这里，我打算分享我的日常的学习、娱乐等经历，一方面也起到备忘的作用，<s>内容尽量健康积极</s>。</p>
 <p>你可以通过<a href="mayeggs@126.com">邮箱</a>联系我。</p>
