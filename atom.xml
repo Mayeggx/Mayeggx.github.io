@@ -2,13 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Mayeggx.github.io</id>
     <title>十七号十七型十七式中转站</title>
-    <updated>2021-04-26T12:22:05.705Z</updated>
+    <updated>2021-04-26T12:29:33.887Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Mayeggx.github.io"/>
     <link rel="self" href="https://Mayeggx.github.io/atom.xml"/>
     <logo>https://Mayeggx.github.io/images/avatar.png</logo>
     <icon>https://Mayeggx.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 十七号十七型十七式中转站</rights>
+    <entry>
+        <title type="html"><![CDATA[「齐格随笔」序章]]></title>
+        <id>https://Mayeggx.github.io/post/qi-ge-sui-bi-xu-zhang/</id>
+        <link href="https://Mayeggx.github.io/post/qi-ge-sui-bi-xu-zhang/">
+        </link>
+        <updated>2021-04-26T12:26:26.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="概论">📔概论</h2>
+<p>齐格随笔被定义为伟大的二十一世纪的哲学著作，由我本人在新世纪的浪潮中思索整理得来。本作追求的，是唯心而且更加虚妄的哲学，<s>也许就是在扯吗</s>。</p>
+<h2 id="️鸣谢">❤️鸣谢</h2>
+<p>有些许人为这部著作的问世做出了贡献，这里特别感谢：</p>
+<blockquote>
+<p>谛听先生</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「中转站」你好]]></title>
         <id>https://Mayeggx.github.io/post/zhong-zhuan-zhan-ni-hao/</id>
