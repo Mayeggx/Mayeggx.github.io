@@ -1271,10 +1271,10 @@ a.fancybox:hover {
 }
 #nprogress .bar {
   height: 3px !important;
-  background-color: #29d !important;
+  background-color: #DB7093 !important;
 }
 #nprogress .peg {
-  box-shadow: 0 0 14px #29d, 0 0 8px #29d !important;
+  box-shadow: 0 0 14px #DB7093, 0 0 8px #DB7093 !important;
 }
 @media (max-width: 575px) {
   #nprogress .bar {
