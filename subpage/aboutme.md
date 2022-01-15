@@ -12,5 +12,6 @@ export_on_save:
 ---
 
 @import "nom.css"
+
 # 关于我
 一个无所事事的大学生。
