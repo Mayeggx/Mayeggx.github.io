@@ -20,5 +20,5 @@ date: 2022-1-16
 |    [日语]( /subpage/japanese.html "日语")    |
 |    [408]( /subpage/kaoyan.html "考研")     |
 |    [画画]( /subpage/draw.html "画画")    |
-|    [ACG]( /subpage/acg.html "acg")    |
+|    [ACGN]( /subpage/acg.html "acg")    |
 
