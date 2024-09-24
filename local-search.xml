@@ -8,7 +8,26 @@
     <link href="/2024/09/23/test/"/>
     <url>/2024/09/23/test/</url>
     
-    <content type="html"><![CDATA[<h1 id="HELLO"><a href="#HELLO" class="headerlink" title="HELLO"></a>HELLO</h1><p>11111111</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>2222</p><p><img src="/img/kumiko_practice.jpg" alt="photo_test"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">jwt</span><span class="hljs-params">()</span> &#123;<br>        Map&lt;String,Object&gt; claims = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        claims.put(<span class="hljs-string">&quot;username&quot;</span>,<span class="hljs-string">&quot;admin&quot;</span>);<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">jwt</span> <span class="hljs-operator">=</span> Jwts.builder()<br>                .signWith(SignatureAlgorithm.HS256,<span class="hljs-string">&quot;mayeggasdfegrhtryutyrewdfgerh5tjyhgfbdsdsafwefrvsdvsdvds&quot;</span>)<br>                .setClaims(claims)<br>                .setExpiration(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(System.currentTimeMillis()+<span class="hljs-number">100000</span>))<br>                .compact();<br>        System.out.println(jwt);<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="HELLO"><a href="#HELLO" class="headerlink" title="HELLO"></a>HELLO</h1><p>11111111</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>2222</p><p><img src="/img/kumiko_practice.jpg" alt="photo_test"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">jwt</span><span class="hljs-params">()</span> &#123;<br>Map&lt;String,Object&gt; claims = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>claims.put(<span class="hljs-string">&quot;username&quot;</span>,<span class="hljs-string">&quot;admin&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">jwt</span> <span class="hljs-operator">=</span> Jwts.builder()<br>.signWith(SignatureAlgorithm.HS256,<span class="hljs-string">&quot;mayeggasdfegrhtryutyrewdfgerh5tjyhgfbdsdsafwefrvsdvsdvds&quot;</span>)<br>              .setClaims(claims)<br>                .setExpiration(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(System.currentTimeMillis()+<span class="hljs-number">100000</span>))<br>                .compact();<br>        System.out.println(jwt);<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>test</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>test</title>
+    <link href="/2024/09/23/new/"/>
+    <url>/2024/09/23/new/</url>
+    
+    <content type="html"><![CDATA[<p>不是，我请问了</p>]]></content>
     
     
     <categories>
