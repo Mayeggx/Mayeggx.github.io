@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>流畅的python笔记</title>
+    <link href="/2025/05/26/python/"/>
+    <url>/2025/05/26/python/</url>
+    
+    <content type="html"><![CDATA[<h1 id="流畅的python笔记"><a href="#流畅的python笔记" class="headerlink" title="流畅的python笔记"></a>流畅的python笔记</h1><h2 id="python的数据模型"><a href="#python的数据模型" class="headerlink" title="python的数据模型"></a>python的数据模型</h2><p><code>__init__</code>是一种魔术方法，可以被读作<code>dunder init</code>魔术方法 dunder init</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程学习</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>日语学习历程</title>
     <link href="/2024/12/03/jp/"/>
     <url>/2024/12/03/jp/</url>
@@ -32,7 +51,7 @@
     
     <categories>
       
-      <category>test</category>
+      <category>功能测试</category>
       
     </categories>
     
