@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img.png">
 <meta property="article:published_time" content="2025-05-29T14:18:23.000Z">
-<meta property="article:modified_time" content="2025-05-29T14:18:37.515Z">
+<meta property="article:modified_time" content="2025-05-31T11:19:49.564Z">
 <meta property="article:author" content="Mayegg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img.png">
@@ -206,7 +206,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k words
+          2.8k words
         
       </span>
     
@@ -217,7 +217,7 @@
         
         
         
-          18 mins
+          24 mins
         
       </span>
     
@@ -333,11 +333,7 @@
 <li>Go语言中的函数传参都是值拷贝，当我们想要修改某个变量的时候，我们可以创建一个指向该变量地址的指针变量</li>
 <li><code>ptr := &amp;v</code>ptr:用于接收地址的变量，ptr的类型就为<em>T，称做T的指针类型。</em>代表指针。</li>
 <li>取地址操作符&amp;和取值操作符<em>是一对互补操作符，&amp;取出地址，</em>根据地址取出地址指向的值</li>
-<li>通过指针传递值</li>
-</ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">modify2</span><span class="hljs-params">(x *<span class="hljs-type">int</span>)</span></span> &#123;<br>    *x = <span class="hljs-number">100</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    a := <span class="hljs-number">10</span><br>    modify1(a)<br>    fmt.Println(a) <span class="hljs-comment">// 10</span><br>    modify2(&amp;a)<br>    fmt.Println(a) <span class="hljs-comment">// 100</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
+<li>通过指针传递值<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">modify2</span><span class="hljs-params">(x *<span class="hljs-type">int</span>)</span></span> &#123;<br>    *x = <span class="hljs-number">100</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    a := <span class="hljs-number">10</span><br>    modify1(a)<br>    fmt.Println(a) <span class="hljs-comment">// 10</span><br>    modify2(&amp;a)<br>    fmt.Println(a) <span class="hljs-comment">// 100</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><code>if p != nil</code>空指针</li>
 <li><code>var a *int; *a = 100</code>对于引用类型的变量，不能直接使用等号赋值，需要使用new函数分配内存空间，才能进行赋值操作</li>
 <li><code>a := new(int)</code>得到一种类型的指针</li>
@@ -369,19 +365,13 @@
 <li><code>data, err := json.Marshal(c)</code>序列号和反序列化</li>
 <li>Tag在结构体字段的后方定义，由一对反引号包裹起来</li>
 <li>通过指定tag实现json序列化该字段时的key，例如<code>json:&quot;name&quot;</code>表示序列化时，该字段的key为name</li>
+<li><code>type Stack[T any] struct </code> 泛类型参数</li>
 </ul>
-<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
+<h4 id="泛类型参数"><a href="#泛类型参数" class="headerlink" title="泛类型参数"></a>泛类型参数</h4><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
 <li>golang的接口是<strong>隐式的</strong>，只要其他的类型实现了接口的所有方法，那么这个类型就实现了这个接口</li>
-<li>在传入一个类型的数据时，此时只需要指定接口类型，而不需要指定具体的类型，提高了代码的灵活性</li>
+<li>在传入一个类型的数据时，此时只需要指定接口类型，而不需要指定具体的类型，提高了代码的灵活性<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// 定义接口</span><br><span class="hljs-keyword">type</span> Shape <span class="hljs-keyword">interface</span> &#123;<br>    Area() <span class="hljs-type">float64</span><br>    Perimeter() <span class="hljs-type">float64</span><br>&#125;<br><br><span class="hljs-keyword">type</span> Rectangle <span class="hljs-keyword">struct</span> &#123; Width, Height <span class="hljs-type">float64</span> &#125;<br><span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> &#123; Radius <span class="hljs-type">float64</span> &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span></span> Area() <span class="hljs-type">float64</span>      &#123; <span class="hljs-keyword">return</span> r.Width * r.Height &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span></span> Perimeter() <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (r.Width + r.Height) &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span></span> Area() <span class="hljs-type">float64</span>      &#123; <span class="hljs-keyword">return</span> math.Pi * c.Radius * c.Radius &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span></span> Perimeter() <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * math.Pi * c.Radius &#125;<br><br><span class="hljs-comment">// 统一的计算函数 - 接受接口类型</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CalculateArea</span><span class="hljs-params">(s Shape)</span></span> <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> s.Area() &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CalculatePerimeter</span><span class="hljs-params">(s Shape)</span></span> <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> s.Perimeter() &#125;<br></code></pre></td></tr></table></figure></li>
+<li><code>var any interface&#123;&#125;</code>空接口可以存储任意类型的值，常用于动态类型场景<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">//利用空接口简化类型判断</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">processValue</span><span class="hljs-params">(v <span class="hljs-keyword">interface</span>&#123;&#125;)</span></span> &#123;<br>    <span class="hljs-keyword">switch</span> val := v.(<span class="hljs-keyword">type</span>) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">int</span>:<br>        fmt.Println(<span class="hljs-string">&quot;整数:&quot;</span>, val)<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">string</span>:<br>        fmt.Println(<span class="hljs-string">&quot;字符串:&quot;</span>, val)<br>    <span class="hljs-keyword">case</span> []<span class="hljs-type">int</span>:<br>        fmt.Println(<span class="hljs-string">&quot;整数切片:&quot;</span>, val)<br>    <span class="hljs-keyword">default</span>:<br>        fmt.Println(<span class="hljs-string">&quot;未知类型&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// 定义接口</span><br><span class="hljs-keyword">type</span> Shape <span class="hljs-keyword">interface</span> &#123;<br>    Area() <span class="hljs-type">float64</span><br>    Perimeter() <span class="hljs-type">float64</span><br>&#125;<br><br><span class="hljs-keyword">type</span> Rectangle <span class="hljs-keyword">struct</span> &#123; Width, Height <span class="hljs-type">float64</span> &#125;<br><span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> &#123; Radius <span class="hljs-type">float64</span> &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span></span> Area() <span class="hljs-type">float64</span>      &#123; <span class="hljs-keyword">return</span> r.Width * r.Height &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span></span> Perimeter() <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (r.Width + r.Height) &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span></span> Area() <span class="hljs-type">float64</span>      &#123; <span class="hljs-keyword">return</span> math.Pi * c.Radius * c.Radius &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span></span> Perimeter() <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * math.Pi * c.Radius &#125;<br><br><span class="hljs-comment">// 统一的计算函数 - 接受接口类型</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CalculateArea</span><span class="hljs-params">(s Shape)</span></span> <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> s.Area() &#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CalculatePerimeter</span><span class="hljs-params">(s Shape)</span></span> <span class="hljs-type">float64</span> &#123; <span class="hljs-keyword">return</span> s.Perimeter() &#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><code>var any interface&#123;&#125;</code>空接口可以存储任意类型的值，常用于动态类型场景</li>
-</ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">//利用空接口简化类型判断</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">processValue</span><span class="hljs-params">(v <span class="hljs-keyword">interface</span>&#123;&#125;)</span></span> &#123;<br>    <span class="hljs-keyword">switch</span> val := v.(<span class="hljs-keyword">type</span>) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">int</span>:<br>        fmt.Println(<span class="hljs-string">&quot;整数:&quot;</span>, val)<br>    <span class="hljs-keyword">case</span> <span class="hljs-type">string</span>:<br>        fmt.Println(<span class="hljs-string">&quot;字符串:&quot;</span>, val)<br>    <span class="hljs-keyword">case</span> []<span class="hljs-type">int</span>:<br>        fmt.Println(<span class="hljs-string">&quot;整数切片:&quot;</span>, val)<br>    <span class="hljs-keyword">default</span>:<br>        fmt.Println(<span class="hljs-string">&quot;未知类型&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
 <h3 id="常用数据库"><a href="#常用数据库" class="headerlink" title="常用数据库"></a>常用数据库</h3><h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><ul>
 <li>反射是指在程序运行期对程序本身进行访问和修改的能力</li>
 <li>reflect包封装了反射相关的方法</li>
@@ -389,7 +379,51 @@
 <li><code>t := reflect.TypeOf(a)</code> 反射获取类型</li>
 <li><code>v.SetFloat(6.9)</code>修改反射的值</li>
 </ul>
-<h3 id="gin框架"><a href="#gin框架" class="headerlink" title="gin框架"></a>gin框架</h3><ul>
+<h3 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h3><h4 id="Goroutine"><a href="#Goroutine" class="headerlink" title="Goroutine"></a>Goroutine</h4><ul>
+<li>协程是轻量级的线程，由Go语言的运行时（runtime）调度。</li>
+<li>协程的调度由Go语言的运行时（runtime）负责，开发者无需手动管理协程的调度。</li>
+<li>goroutine是官方实现的超级线程池，通过通信共享内存</li>
+<li><code>go hello()</code>当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个goroutine去执行这个函数就可以了</li>
+<li><code>time.Sleep(time.Second)</code> main函数上会创建一个默认的gorountine，main函数结束后，默认的gorountine也会结束</li>
+<li>可增长的栈：goroutine的栈在其生命周期开始时很小，并且随着程序的执行，栈会逐渐增长，直到达到一个上限。这个上限是由Go语言的运行时（runtime）决定的，通常是2MB。</li>
+<li>GPM调度：</li>
+</ul>
+<h4 id="runtime包"><a href="#runtime包" class="headerlink" title="runtime包"></a>runtime包</h4><ul>
+<li><code> runtime.Gosched()</code>让出CPU时间片，重新等待安排任务</li>
+<li><code>runtime.Goexit()</code>退出当前协程</li>
+<li><code>runtime.GOMAXPROCS</code>确定需要使用多少个OS线程来同时执行Go代码</li>
+</ul>
+<h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><ul>
+<li>Go语言的并发模型是<code>CSP（Communicating Sequential Processes）</code>，提倡通过通信共享内存而不是通过共享内存而实现通信。</li>
+<li>通道像一个传送带或者队列，总是遵循先入先出的规则，保证收发数据的顺序</li>
+<li><code>var ch3 chan []int</code>声明一个传递int切片的通道</li>
+<li><code>ch6 := make(chan []int)</code> 引用类型需要make初始化之后才能使用</li>
+<li><code>ch &lt;- 10</code>把10发送到ch中</li>
+<li><code>x := &lt;- ch</code>从ch中接收值并赋值给变量x</li>
+<li><code>ch := make(chan int)</code>无缓冲的通道只有在有人接收值的时候才能发送值</li>
+<li>使用同步通道的方法<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">recv</span><span class="hljs-params">(c <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)</span></span> &#123;<br>	ret := &lt;-c<br>	fmt.Println(<span class="hljs-string">&quot;接收成功&quot;</span>, ret)<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br>	<span class="hljs-keyword">go</span> recv(ch) <span class="hljs-comment">// 启用goroutine从通道接收值</span><br>	ch &lt;- <span class="hljs-number">10</span><br>	fmt.Println(<span class="hljs-string">&quot;发送成功&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><code>ch := make(chan int, 1)</code>创建有缓存的通道，容量为1</li>
+</ul>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><ul>
+<li><code>timer5 := time.NewTimer(3 * time.Second)</code> 时间到了，执行只执行1次</li>
+<li><code>ticker := time.NewTicker(1 * time.Second)</code>时间到了，多次执行</li>
+</ul>
+<h4 id="select多路复用"><a href="#select多路复用" class="headerlink" title="select多路复用"></a>select多路复用</h4><p>实现多路复用</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// 2个管道</span><br>output1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">string</span>)<br>output2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">string</span>)<br><span class="hljs-comment">// 跑2个子协程，写数据</span><br><span class="hljs-keyword">go</span> test1(output1)<br><span class="hljs-keyword">go</span> test2(output2)<br><span class="hljs-comment">// 用select监控</span><br><span class="hljs-keyword">select</span> &#123;<br><span class="hljs-keyword">case</span> s1 := &lt;-output1:<br>   fmt.Println(<span class="hljs-string">&quot;s1=&quot;</span>, s1)<br><span class="hljs-keyword">case</span> s2 := &lt;-output2:<br>   fmt.Println(<span class="hljs-string">&quot;s2=&quot;</span>, s2)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="并发安全和锁"><a href="#并发安全和锁" class="headerlink" title="并发安全和锁"></a>并发安全和锁</h4><ul>
+<li><code>lock.Lock()</code>Go语言中使用sync包的Mutex类型来实现互斥锁</li>
+<li><code>rwlock.Lock()</code>加写锁</li>
+<li><code>rwlock.RLock()</code>加读锁</li>
+</ul>
+<h4 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h4><ul>
+<li><code>sync.WaitGroup</code>内部维护着一个计数器，计数器的值可以增加和减少</li>
+<li><code>wg.Add()</code>计数器加1</li>
+<li><code>wg.Done()</code>计数器减1</li>
+<li><code>wg.wait()</code> 阻塞直到计数器变为0</li>
+<li><code>sync.Once</code> 用于实现单例模式，保证一个函数只被执行一次</li>
+<li><code>var m = sync.Map&#123;&#125;</code> 并发安全的map</li>
+</ul>
+<h4 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h4><h4 id="GMP调度原理"><a href="#GMP调度原理" class="headerlink" title="GMP调度原理"></a>GMP调度原理</h4><h3 id="gin框架"><a href="#gin框架" class="headerlink" title="gin框架"></a>gin框架</h3><ul>
 <li>Gin是一个golang的微框架，封装比较优雅，API友好</li>
 <li>hello world <img src="/img.png" srcset="/img/loading.gif" lazyload alt="img.png"></li>
 </ul>
@@ -465,7 +499,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>May 29, 2025</div>
+          <div>May 31, 2025</div>
         </div>
       
       
