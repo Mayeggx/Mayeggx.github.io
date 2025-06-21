@@ -1,0 +1,1222 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mayegg.png">
+  <link rel="icon" href="/img/mayegg.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mayegg">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="算法设计复习数据结构一 红黑树红黑树的性质  根节点和叶子节点为黑色 红不相邻：如果某个节点为红色，则它的左右孩子节点均为黑色 对于树中的任意一个节点，从该节点出发到其他叶子节点中包含相同的黑色节点数量  红黑树的定理  插入、删除、查找的时间复杂度均为lgn 具有n个内部结点的红黑树高度h最多为2lg(n+1)  ，即h&#x3D;O（lgn） 黑高度：黑高度bh(x)表示从x结点出发(不包含x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法设计">
+<meta property="og:url" content="http://example.com/2025/06/21/algorithm/index.html">
+<meta property="og:site_name" content="Mayegg&#39;s Blog">
+<meta property="og:description" content="算法设计复习数据结构一 红黑树红黑树的性质  根节点和叶子节点为黑色 红不相邻：如果某个节点为红色，则它的左右孩子节点均为黑色 对于树中的任意一个节点，从该节点出发到其他叶子节点中包含相同的黑色节点数量  红黑树的定理  插入、删除、查找的时间复杂度均为lgn 具有n个内部结点的红黑树高度h最多为2lg(n+1)  ，即h&#x3D;O（lgn） 黑高度：黑高度bh(x)表示从x结点出发(不包含x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-21T11:36:12.000Z">
+<meta property="article:modified_time" content="2025-06-21T11:49:12.358Z">
+<meta property="article:author" content="Mayegg">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>算法设计 - Mayegg&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4692615_syjqch6kdn.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mayegg&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/pokemonDark.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="算法设计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-21 19:36" pubdate>
+          June 21, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          67 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> views
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">算法设计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="算法设计复习"><a href="#算法设计复习" class="headerlink" title="算法设计复习"></a>算法设计复习</h3><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><h5 id="一-红黑树"><a href="#一-红黑树" class="headerlink" title="一 红黑树"></a>一 红黑树</h5><p><strong>红黑树的性质</strong></p>
+<ol>
+<li>根节点和叶子节点为黑色</li>
+<li>红不相邻：如果某个节点为红色，则它的左右孩子节点均为黑色</li>
+<li>对于树中的任意一个节点，从该节点出发到其他叶子节点中包含相同的黑色节点数量</li>
+</ol>
+<p><strong>红黑树的定理</strong></p>
+<ol>
+<li>插入、删除、查找的时间复杂度均为lgn</li>
+<li>具有n个内部结点的红黑树高度h最多为2lg(n+1)  ，即h&#x3D;O（lgn）</li>
+<li>黑高度：黑高度bh(x)表示从x结点出发(不包含x结点)到其叶结点路径上的黑色结点个数。</li>
+<li>令f为具有n个结点的红黑树扩张后的一个域，如果结点x的f域值仅需通过结点x、left[x]、right[x]以及f(left[x])、f(right[x])就可获得，那么性能将保持为lgn。下面的序统计树和区间树都是这样的例子，他们的size和max都是通过左右子树直接获得的。</li>
+</ol>
+<p><strong>【应用】序统计树</strong></p>
+<ol>
+<li>概念：本质上是一颗平衡二叉搜索树，通常是红黑树，每个节点上增加了一个额外的属性<code>size</code></li>
+<li>在一系列数中找出最大最小值和序值等操作，序值就是指树在所在集合中在第几个位置</li>
+<li><code>size[x]</code>的定义为以x为根的子树锁包含的内部节点树，包含x本身。</li>
+<li>有推导公式<code>Size[x]=Size[x.left]+Size[x.right]+1</code></li>
+<li>找到第i个最小值、求x的序值、完成一次插入删除，时间复杂度为lgn</li>
+</ol>
+<p>下面是一个可能的平衡结果，每个节点表示为 <code>key(size)</code> 的形式。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs gcode">         <span class="hljs-number">13</span><span class="hljs-comment">(7)</span><br>        /     \<br>      <span class="hljs-number">8</span><span class="hljs-comment">(4)</span>     <span class="hljs-number">17</span><span class="hljs-comment">(2)</span><br>     /   \       \<br>   <span class="hljs-number">5</span><span class="hljs-comment">(2)</span>  <span class="hljs-number">11</span><span class="hljs-comment">(1)</span>   <span class="hljs-number">22</span><span class="hljs-comment">(1)</span><br>  /<br><span class="hljs-number">2</span><span class="hljs-comment">(1)</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>假如要找到序值为4的元素：<code>计算13的临时序值为4+1=5</code> -&gt; <code>计算8的临时序值为2+1=3</code> -&gt; <code>在8的右字数找到第1小的元素为11</code></li>
+<li>假如要求17的序值：<code>13大于17则往右边走，记录13的排名为基础排名4+1=5</code> -&gt; <code>记录17在当前子树的排名0+1=1</code> -&gt; <code>基础排名加上当前子树的排名5+1=6，即为17的序值</code></li>
+</ul>
+<p><strong>【应用】区间树</strong><br>概念：给定一个查询区间，能够快速的找出与其重叠的区间。一个节点中保存的是一个区间。区间树的关键在于保存了一个值<code>max</code>，诉我们：“从这个节点往下走，你最多能找到的右边界在哪里”。</p>
+<p>下面是一个可能的区间树的结构，按照low值进行构建，每个节点包含<code>[low,high](max)</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">          <span class="hljs-selector-attr">[15, 20]</span>(<span class="hljs-number">40</span>)<br>         /            \<br>    <span class="hljs-selector-attr">[10, 30]</span>(<span class="hljs-number">30</span>)      <span class="hljs-selector-attr">[17, 19]</span>(<span class="hljs-number">40</span>)<br>   /          \                \<br><span class="hljs-selector-attr">[5, 20]</span>(<span class="hljs-number">20</span>)  <span class="hljs-selector-attr">[12, 15]</span>(<span class="hljs-number">15</span>)      <span class="hljs-selector-attr">[30, 40]</span>(<span class="hljs-number">40</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>max值是如何计算的：自底向上，叶子节点的max值就是high值。上层节点的max值，如<code>[10, 30]: max = Max(30, max of [5,20], max of [12,15]) = Max(30, 20, 15) = 30</code></li>
+<li>如果要查询<code>i = [14,16]</code>的重叠区间。一开始查找根节点即可结束。</li>
+<li>如果要查询<code>i = [21,23]</code>的重叠区间。查找发现与根节点不重叠。我们发现左子树的max值要大于查找的上区间，因此左子树可能存在一个重叠区间，于是进入左子树。</li>
+<li>在一个标准的区间查找中，只需要在左子树查找到对应的区间之后，就不需要再继续查询了</li>
+</ul>
+<h5 id="二-二顶堆"><a href="#二-二顶堆" class="headerlink" title="二 二顶堆"></a>二 二顶堆</h5><p><strong>二项树</strong></p>
+<ul>
+<li>仅包含一个结点的有序树是一棵二项树称为B0树，如：<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-number">5</span>)      (<span class="hljs-number">12</span>)      (<span class="hljs-number">9</span>)<br></code></pre></td></tr></table></figure></li>
+<li>二项树Bk由二棵Bk-1树组成。其中一棵Bk-1树的根作为另一棵Bk-1树根的最左孩子(k≥0)，如：<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode">  <span class="hljs-comment">(7)</span><br>  /<br><span class="hljs-comment">(15)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode">  <span class="hljs-comment">(8)</span><br>  /<br><span class="hljs-comment">(10)</span><br></code></pre></td></tr></table></figure>
+上述两棵B1树组合，生成B2树<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode">     <span class="hljs-comment">(7)</span><br>    /   \<br>  <span class="hljs-comment">(8)</span>   <span class="hljs-comment">(15)</span><br>  /<br><span class="hljs-comment">(10)</span><br></code></pre></td></tr></table></figure></li>
+<li>二项树有如下的性质</li>
+</ul>
+<ol>
+<li>有2^k个结点 ，即n&#x3D;2^k，如上图有4个节点</li>
+<li>树的高度为k , 即k&#x3D;lgn（注：二项树的高度从0开始计数），如上图高度为2</li>
+<li>深度为i处恰好有<code>C_k^i</code>个结点，0≤i≤k。如上图分别有1，2，1个节点，满足组合数的分布。</li>
+<li>根的度最大且为k，如上图的度为2。</li>
+<li>一棵具有n个结点的二项树中,任一结点的最大度为lgn，如上图的最大度为2。</li>
+</ol>
+<p><strong>二项堆</strong><br>是由多棵大小不同的二项树所组成的集合森林，最大的优势是能进行频繁的合并。<br>如果要构造一个包含13个节点的二顶堆，有如下步骤：</p>
+<ol>
+<li>计算13的二级制为1101。 <code>13 = 8 + 4 + 0 + 1 = 1*2³ + 1*2² + 0*2¹ + 1*2⁰</code></li>
+<li>根据得到的二进制，可以确定需要的二项树为B₃、B₂、B₀三颗二项树。</li>
+<li>构建并填充二项树。例如使用13个的数字为<code>1, 2, 5, 7, 8, 10, 12, 18, 20, 25, 30, 32, 40</code>，并确保填充的二项树满足最小堆的性质，如下图所示。<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-comment">// B₀ (根的度=0)      // B₂ (根的度=2)             // B₃ (根的度=3)</span><br>   <span class="hljs-comment">(12)</span><br>                      <span class="hljs-comment">(2)</span>                         <span class="hljs-comment">(1)</span><br>                     /   \                      /  |  \<br>                   <span class="hljs-comment">(7)</span>   <span class="hljs-comment">(8)</span>                  <span class="hljs-comment">(5)</span> <span class="hljs-comment">(10)</span><span class="hljs-comment">(20)</span><br>                   /                        /  \   /<br>                 <span class="hljs-comment">(30)</span>                     <span class="hljs-comment">(18)</span><span class="hljs-comment">(32)</span><span class="hljs-comment">(25)</span><br>                                          /<br>                                        <span class="hljs-comment">(40)</span><br></code></pre></td></tr></table></figure>
+<strong>根表</strong></li>
+</ol>
+<ul>
+<li>继续上述的例子，二根堆会建立一个根表，在这里的根表为：<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">head[H] -&gt; <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">12</span>)</span> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">2</span>)</span> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">1</span>)</span> -&gt;</span> NULL<br>           |      |      |<br>          B₀     B₂     B₃<br>         Tree   Tree   Tree<br></code></pre></td></tr></table></figure></li>
+<li>可见，根表是一个单链表，连接所有二项树的根节点，并且按照度增序排序。</li>
+</ul>
+<p><strong>二项堆的操作</strong></p>
+<ol>
+<li>创建空堆：算法时间O(1)，创建一个头指针 head 并将其设置为 NULL。</li>
+<li>插入结点：算法时间O(lgn)<ul>
+<li>将待插入结点变为一个只有一个结点的二项堆</li>
+<li>合并两个二项堆</li>
+</ul>
+</li>
+<li>合并堆H1，H2：算法时间O(lgn)<ul>
+<li>先把两个根表合并成一个单一的、仍然按度递增排序的根表。</li>
+<li>合并度相同的两颗二项树。例如发现两个 B₀，合并它们成一个 B₁。</li>
+</ul>
+</li>
+<li>取最小值：算法时间O(lgn)，遍历根表，找到值最小的根节点即可。</li>
+<li>抽取最小值：算法时间O(lgn)<ul>
+<li>调用取最小值的方法</li>
+<li>把该二项树根结点移除，所有孩子形成一个二项堆，从左到右分别是<code>Bₖ₋₁, Bₖ₋₂, ..., B</code>树的根</li>
+<li>合并两个二项堆</li>
+</ul>
+</li>
+<li>x减值为k：算法时间O(lgn) ，冒泡上升。不断将 x 与其父节点比较，如果 x 的值小于其父节点，就交换它们（冒泡上升），直到 x 的父节点比它小，或者 x 成为树的根。</li>
+<li>从堆中删除结点x：算法时间O(lgn)<ul>
+<li>将该节点x减值为负无穷，冒泡上升。</li>
+<li>调用抽取最小值操作，删除该节点。</li>
+</ul>
+</li>
+</ol>
+<h5 id="三-Fib顶堆"><a href="#三-Fib顶堆" class="headerlink" title="三 Fib顶堆"></a>三 Fib顶堆</h5><p><strong>Fib堆的定义</strong><br>假设我们有一个斐波那契堆，它当前的状态可能看起来像下面这样，由4棵形状各异的树组成：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-comment">(23)</span>         <span class="hljs-comment">(7)</span>              <span class="hljs-comment">(3)</span>                <span class="hljs-comment">(17)</span><br>                             /   \              /  |<br>                           <span class="hljs-comment">(18)</span>  <span class="hljs-comment">(21)</span>         <span class="hljs-comment">(24)</span><span class="hljs-comment">(26)</span><br>                           /<br>                         <span class="hljs-comment">(39)</span><br></code></pre></td></tr></table></figure>
+<p>Fib堆要求没棵树均满足最小堆的性质，但不一定要求是二项树，斐波那契堆的操作代价波动很大。插入很快，抽取最小值可能很慢。因此使用平摊成本全局的进行时间成本的分析。相较于二顶堆，Fib堆是一种懒惰的堆。</p>
+<p><strong>根表的性质</strong></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell">          +----&gt;(<span class="hljs-number">23</span>)&lt;----+----&gt;(<span class="hljs-number">7</span>)&lt;----+----&gt;(<span class="hljs-number">3</span>)&lt;-----+----&gt;(<span class="hljs-number">17</span>)&lt;----+<br>          |             |             |             |              |<br><span class="hljs-title">min</span>[<span class="hljs-type">H</span>] ---+-------------+-------------+-------------+              |<br>                                                                   |<br>          +--------------------------------------------------------+<br></code></pre></td></tr></table></figure>
+<ul>
+<li>根表的度不唯一</li>
+<li>根表不需要按照根度递增排序</li>
+<li>表头指针改用Min[H]表示，指向根表中具有最小值的树根结点，如在这里指向节点3</li>
+<li>根表中的兄弟节点之间，采用双向循环链表的模式</li>
+</ul>
+<p><strong>Fib堆的操作</strong></p>
+<ol>
+<li>创建空堆：平摊代价O(1)</li>
+<li>插入一个结点 ：平摊代价O(1)<ul>
+<li>x作为新树插入根表中</li>
+<li>检查<code>Min[H]</code>头指针</li>
+<li>新结点x的mark域置为false</li>
+</ul>
+</li>
+<li>取最小值：平摊代价O(1),根表头指针指的就是最小值</li>
+<li>合并堆操作 ：平摊代价O(1)<ul>
+<li>合并二个根表为一个新的根表</li>
+<li>检查头指针<code>Min[H]</code></li>
+</ul>
+</li>
+<li>抽取最小值操作：平摊代价O(lgn)<ul>
+<li>将被删结点z的所有孩子作为新树插入到根表中</li>
+<li>将z从堆H中删除</li>
+<li>调整根表，合并相同度的根，重构堆并确定新的最小结点（需要额外的指针数组辅助完成，创建一个指针数组 A，大小为 O(log n)，<code>A[d]</code>用来存放一个指向度为d的根节点的指针）。如将上述的例子中的节点3删除，得到的新Fib堆为： <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode">      <span class="hljs-comment">(7)</span>             <span class="hljs-comment">(21)</span><br>    /  |  \<br>  <span class="hljs-comment">(17)</span><span class="hljs-comment">(18)</span> <span class="hljs-comment">(23)</span><br>  / \   |<br><span class="hljs-comment">(24)</span><span class="hljs-comment">(26)</span><span class="hljs-comment">(39)</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>减值操作：平摊代价O(1).一个节点的<code>mark=true</code>，则说明其已经失去过一个孩子。“第二次失去孩子就剪切”的规则，是保证斐波那契堆平摊代价为 O(1) 的关键。它防止树变得过于“细长”。将39减值为2为例。<ul>
+<li>减小值后，检查堆的性质。如果最小堆的性质被破坏，则剪切下来，插入到根表中，并将其的mark标记设置为false。</li>
+<li>如果父节点的mark标记为false，则将其置为true，然后结束操作。</li>
+<li>如果父节点的mark标记为true，则触发级联剪切，将自己也剪切下来。直到父节点的mark标记为false&#x2F;到根节点为止。</li>
+</ul>
+</li>
+<li>删除任一结点 ：平摊代价O(D(n))&#x3D;O(lgn)<ul>
+<li>先减值到负无穷</li>
+<li>调用抽取最小值操作</li>
+</ul>
+</li>
+</ol>
+<h4 id="算法设计方法"><a href="#算法设计方法" class="headerlink" title="算法设计方法"></a>算法设计方法</h4><h5 id="一-分治法"><a href="#一-分治法" class="headerlink" title="一 分治法"></a>一 分治法</h5><p><strong>基本步骤</strong>  </p>
+<ul>
+<li>分解问题(divide)</li>
+<li>求解子问题(conquer)</li>
+<li>合并子问题的解(combine)，子问题可以合并，而且不会重叠</li>
+</ul>
+<p><strong>归并排序</strong></p>
+<ul>
+<li>divide：把具有n个元素的数组分解为二个n&#x2F;2大小的子数组</li>
+<li>conquer：递归地分解子数组，直到子数组只包含一个元素为止</li>
+<li>combine：二二合并已排好序的子数组使之成为一个新的排好序的子数组，重复这样二二合并的过程直到得到原问题的解</li>
+<li>时间复杂度，最好-最坏-平均：O(nlgn)</li>
+</ul>
+<p><strong>快速排序</strong></p>
+<ul>
+<li>任取一个元素x作为比较的基准，并用该基准将当前无序区分为左右二个较小的无序区</li>
+<li>选择第一个设置为中枢元素，从右开始遍历把小于中枢元素的换到左边，从左开始换到右边，直到双指针重叠，把中枢元素放到空缺的位置，即把数组分成两个区域，并确定终序</li>
+<li>时间复杂度，最坏：O(n2)，最好-平均：O(nlgn)</li>
+</ul>
+<p><strong>插入排序</strong></p>
+<ul>
+<li>依次插入元素，每次插入比较当前数组中的数组，并确定位置。</li>
+<li>时间复杂度，最好O(n)，最坏-平均：O(nlgn)</li>
+</ul>
+<h5 id="二-动态规划法"><a href="#二-动态规划法" class="headerlink" title="二 动态规划法"></a>二 动态规划法</h5><p><strong>基本步骤</strong></p>
+<ul>
+<li>描述问题的最优解特征。即：一个大问题的解是最优的，则比他稍小的子问题的解也是最优的。</li>
+<li>递归定义求解最优解，并从求得的最优解的信息中获得最优解。</li>
+</ul>
+<p><strong>装配线调度</strong><br>纯纯的dp问题，递推公式应该很清晰。</p>
+<p><strong>矩阵链乘</strong><br>判断几个线性矩阵如何相乘，得到的相乘次数最少。<br>输入: <code>q = &#123;3, 2, 5, 10, 2&#125;</code>。定义了4个矩阵的相乘。得到如下DP矩阵和K的划分矩阵。<br>以计算 <code>m[1, 4]</code> (<code>A₁A₂A₃A₄</code>)为例：</p>
+<ul>
+<li>k&#x3D;1: <code>(A₁)(A₂A₃A₄)</code> -&gt; <code>m[1,1]+m[2,4] + q₀*q₁*q₄</code> &#x3D; <code>0+120 + 3*2*2</code> &#x3D; <strong>132</strong></li>
+<li>k&#x3D;2: <code>(A₁A₂)(A₃A₄)</code> -&gt; <code>m[1,2]+m[3,4] + q₀*q₂*q₄</code> &#x3D; <code>30+100 + 3*5*2</code> &#x3D; 160</li>
+<li>k&#x3D;3: <code>(A₁A₂A₃)(A₄)</code> -&gt; <code>m[1,3]+m[4,4] + q₀*q₃*q₄</code> &#x3D; <code>160+0 + 3*10*2</code> &#x3D; 220</li>
+<li>最小值为 <strong>132</strong>。 (k&#x3D;1)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">i \ j</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">0</td>
+<td align="center">30</td>
+<td align="center">160</td>
+<td align="center"><strong>132</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">100</td>
+<td align="center">120</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">i \ j</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">-</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><strong>1</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">2</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">这里k的意思是，排除一个当前序号的矩阵，并将剩下部分用括号括起来。将它们组合起来，最终的加括号方式为： (A₁ (A₂ (A₃ A₄)))</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><strong>最长公共子序列</strong><br>即判断两个字符串的公共序列。在构造dp时，有三种转移方式，分别为删除、添加和修改。特别的，当字符串相同时，修改的代价为0。算法时间：O（mn）m、n分别是两个序列的长度。</p>
+<p><strong>最优二叉查找树</strong></p>
+<ul>
+<li>输入数组: {0.1, 0.2, 0.2, 0.3, 0.2}。关键字概率 <code>p = &#123;0.2, 0.3&#125;</code>，虚拟键概率 <code>q = &#123;0.1, 0.2, 0.2&#125;</code>。得到如下DP矩阵和K的划分矩阵。</li>
+<li><code>w[i, j] = pᵢ + ... + pⱼ + qᵢ₋₁ + ... + qⱼ</code></li>
+<li><code>dp[i, j] = min &#123; dp[i, r-1] + dp[r+1, j] + w[i, j] &#125;</code> (其中 <code>i ≤ r ≤ j</code>)</li>
+<li>以<code>dp[1,2]</code>的计算为例。<code>w[1,2]=1</code>即所有概率之和。此时可以选择<code>k=1</code>或者<code>k=2</code>为根结点。<ul>
+<li><code>dp[1,2] = dp[1, 0] + dp[2, 2] + w[1, 2] = 2.2</code></li>
+<li><code>dp[1,2] = dp[1, 1] + dp[3, 2] + w[1, 2] = 2.2</code></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">i \ j</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">0.1</td>
+<td align="center">0.8</td>
+<td align="center"><strong>2.0</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center"></td>
+<td align="center">0.2</td>
+<td align="center">1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0.2</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">i \ j</th>
+<th align="center">1</th>
+<th align="center">2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">1</td>
+<td align="center"><strong>2</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center"></td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<p>k矩阵的含义是：“如果我们只考虑关键字 <code>Kᵢ</code> 到 <code>Kⱼ</code> 这个子集，那么为了构成一棵最优的子树，应该选择<strong>哪个关键字作为这棵子树的根</strong>？”<code>K[1,2]=2</code>说明我们以2为根，然后再把问题细分为在<code>K[1,1]</code>和<code>K[3,2]</code>两个区间上的问题，再次求解作为左右子树。<br>最终的结构为：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livescript">    K₂<br>   /  <span class="hljs-string">\</span><br>  K₁   d₂<br> /  <span class="hljs-string">\</span><br>d₀  d₁<br></code></pre></td></tr></table></figure>
+<h5 id="三-贪心法"><a href="#三-贪心法" class="headerlink" title="三 贪心法"></a>三 贪心法</h5><p><strong>胚的定义</strong><br>我们有几个城市，需要在它们之间铺设光缆，让所有城市都能互相通信，并且总成本最低。以这个最小生成树的问题为例解释贪心算法。</p>
+<ul>
+<li>一个胚应是满足下述条件的有序对M&#x3D;(S,I)</li>
+<li>S是有穷非空集，在这个例子中S是所有可能铺设的光缆线路的集合，比如“北京-上海”、“上海-广州”、“广州-北京”等所有备选线路。</li>
+<li>I是S的一个非空独立子集族。在这个例子中独立子集就是一个独立的光缆方案，这个方案不允许形成任何的环路。I就是所有不包含环路的边的集合。</li>
+<li>胚的遗传性：非空独立子集族I具有遗传性，即B独立，B的子集也独立。在这个例子中，如果一个光缆方案B是独立的，那么去掉几条任意的线路，得到的方案也是独立的。</li>
+<li>胚的交换性：若A∈I，B∈I且|A|&lt;|B|，则存在一个元素x∈B-A，使得A∪{x} ∈I，则称M具有交换性。在这个例子中，假设方案A有3条光缆，连接了几个城市，但还没连通所有城市，方案B有5条光缆，也无环路；交换性告诉我们：方案B中一定存在一条光缆，它连接了方案A中两个原本不连通的城市群。把这条光缆加到A中，就像架起一座桥梁，它不会形成环路，只会让网络更完整。交换下保证小规模的方案是可以扩张的。</li>
+<li>最大独立子集：给定一个胚M&#x3D;(S,I)，对于I中一个独立子集A∈I，若S中有一个元素x不属于A，使得将x加入A后仍保持A的独立性，即A∪{x}∈I，则称x为A的一个可扩张元素，当胚中的一个独立子集A没有可扩张元素时，称A是一个最大独立子集。这里，对于一个独立的方案，你再也无法从备选线路中增加任何一条新线路而不产生环路。</li>
+<li>加权胚：若对M&#x3D;(S,I)中的S给定一个权函数w，对任意的x∈S，有w(x)&gt;0，则称M为加权胚。在这个例子中，就是给每一条备选的光缆线路赋予一个铺设成本。</li>
+<li>最优子集：使w(A)权值达到最大的独立子集A称为最优子集。</li>
+</ul>
+<p>胚的理论告诉我们：这要问题能被模型化为胚，满足遗传和交换性，就一定能通过贪心算法取得全局最优解。</p>
+<p><strong>活动选择</strong></p>
+<ul>
+<li>有一组活动，包含各自的起始和结束时间，每次选择最早完成的活动即可。</li>
+<li>贪心算法时间复杂度为O(nlgn)，时间复杂度来自一开始的排序。</li>
+</ul>
+<p><strong>背包问题</strong></p>
+<ul>
+<li>0-1背包问题：若不取这个物品，那价值会等于上一行的价值；若取这个物品，先判断容量是否吻合否则默认不取，若已取但是有剩余容量，数值即等于上一行的j-w[i]个。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">物品</th>
+<th align="center">重量 (w)</th>
+<th align="center">价值 (v)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">物品1</td>
+<td align="center">2 公斤</td>
+<td align="center">6 元</td>
+</tr>
+<tr>
+<td align="left">物品2</td>
+<td align="center">3 公斤</td>
+<td align="center">10 元</td>
+</tr>
+<tr>
+<td align="left">物品3</td>
+<td align="center">4 公斤</td>
+<td align="center">12 元</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left"><code>dp[i][j]</code></th>
+<th align="center">容量 0</th>
+<th align="center">容量 1</th>
+<th align="center">容量 2</th>
+<th align="center">容量 3</th>
+<th align="center">容量 4</th>
+<th align="center">容量 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>(无物品)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="left"><strong>物品1 (w&#x3D;2, v&#x3D;6)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="left"><strong>物品2 (w&#x3D;3, v&#x3D;10)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">10</td>
+<td align="center">10</td>
+<td align="center"><strong>16</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>物品3 (w&#x3D;4, v&#x3D;12)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center"><strong>16</strong></td>
+</tr>
+</tbody></table>
+<ul>
+<li>零头背包问题：当物品可以分割大小</li>
+</ul>
+<p><strong>Huffman编码</strong><br>构造哈夫曼树：将所有结点中最小的两个构造成二叉树，其根结点放回继续构造<br><strong>初始状态</strong>: 我们有四个叶子节点，将它们看作一个森林（或一个优先队列）： <code>[ (C, 2), (D, 5), (A, 7), (B, 8) ]</code>，得到如下所示的二叉树。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs livescript">   (<span class="hljs-number">22</span>)<br>   /   <span class="hljs-string">\</span><br>  /     <span class="hljs-string">\</span><br>B:<span class="hljs-number">8</span>     (<span class="hljs-number">14</span>)<br>        /  <span class="hljs-string">\</span><br>       /    <span class="hljs-string">\</span><br>      A:<span class="hljs-number">7</span>   (<span class="hljs-number">7</span>)<br>            / <span class="hljs-string">\</span><br>           /   <span class="hljs-string">\</span><br>          D:<span class="hljs-number">5</span>   C:<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>任务调度</strong></p>
+<ul>
+<li>每个任务的耗时时长为1。包含截至时间和处罚值。</li>
+<li>按照处罚值从大到小排序，使得总处罚最小。</li>
+<li>对于每一个任务，尝试将它安排在不晚于其截止日期的、尽可能晚的可用时间段。</li>
+</ul>
+<h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><h5 id="一-传统的分析方法"><a href="#一-传统的分析方法" class="headerlink" title="一 传统的分析方法"></a>一 传统的分析方法</h5><p><strong>渐进符号</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>数学类比</th>
+<th>含义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>O</strong></td>
+<td>≤</td>
+<td><strong>上界</strong> (Upper Bound)</td>
+<td>运行时间最多是… (最坏情况)</td>
+</tr>
+<tr>
+<td><strong>Ω</strong></td>
+<td>≥</td>
+<td><strong>下界</strong> (Lower Bound)</td>
+<td>运行时间最少是… (最好情况)</td>
+</tr>
+<tr>
+<td><strong>Θ</strong></td>
+<td>&#x3D;</td>
+<td><strong>紧确界</strong> (Tight Bound)</td>
+<td>运行时间正好是… (平均情况)</td>
+</tr>
+</tbody></table>
+<ol>
+<li>一个运行时间为 3n + 5 的算法，我们可以说它是 O(n)，因为它的增长率和 n 是一个量级的。我们也可以说它是 O(n²)，因为 n² 的增长率比它快，同样能作为它的一个上界。但通常我们寻求最紧凑的上界，即 O(n)。</li>
+<li>对于运行时间为 3n + 5 的算法，我们可以说它是 Ω(n)，因为它的增长率不会比 n 慢。我们也可以说它是 Ω(log n)，因为 log n 的增长率比它慢。但同样，我们通常寻求最紧凑的下界，即 Ω(n)。</li>
+<li>对于运行时间为 3n + 5 的算法，我们只能说它是 Θ(n)。</li>
+</ol>
+<p><strong>传统方法</strong></p>
+<p>指令执行时间 &#x3D; 指令执行一次的时间指令的条数 </p>
+<h5 id="二-递归算法的分析"><a href="#二-递归算法的分析" class="headerlink" title="二 递归算法的分析"></a>二 递归算法的分析</h5><p><strong>主方法</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">情况</th>
+<th align="left">比较结果</th>
+<th align="left">谁是瓶颈</th>
+<th align="left">最终复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1</strong></td>
+<td align="left"><code>f(n)</code> 远小于 <code>n^(log_b a)</code></td>
+<td align="left">子问题求解</td>
+<td align="left"><code>Θ(n^(log_b a))</code></td>
+</tr>
+<tr>
+<td align="left"><strong>2</strong></td>
+<td align="left"><code>f(n)</code> 等于 <code>n^(log_b a)</code></td>
+<td align="left">两者相当</td>
+<td align="left"><code>Θ(n^(log_b a) * log n)</code></td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><code>f(n)</code> 远大于 <code>n^(log_b a)</code></td>
+<td align="left">分解与合并</td>
+<td align="left"><code>Θ(f(n))</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>例1：<code>T(n) = 9T(n/3) + n</code>。计算关键数值<code>n^(log_b a) = n^(log₃ 9) = n²</code>，比较 <code>f(n) = n</code> 和 <code>n²</code>显然，<code>n</code> 的增长速度远小于 <code>n²</code>。根据情况1的公式，<code>T(n) = Θ(n^(log_b a)) = Θ(n²)</code>。</li>
+<li>例2：<code>T(n) = 2T(n/2) + n</code>。计算关键值<code>n^(log_b a) = n^(log₂ 2) = n¹ = n</code>， 我们比较 <code>f(n) = n</code> 和 <code>n</code>，它们的增长速度是相同的。<code>T(n) = Θ(n^(log_b a) * log n) = Θ(n log n)</code>。</li>
+<li>例3： **<code>T(n) = 3T(n/4) + n log n</code>。计算关键值<code>n^(log_b a) = n^(log₄ 3) ≈ n^0.792</code>。根据情况3的公式，<code>T(n) = Θ(f(n)) = Θ(n log n)</code>。<ul>
+<li>情况3有一个额外的要求：<code>a * f(n/b) ≤ c * f(n)</code> 对于某个常数 <code>c &lt; 1</code> 成立。</li>
+<li>代入：<code>3 * [(n/4) log(n/4)] ≤ c * [n log n]</code></li>
+<li>化简：<code>(3/4)n * (log n - log 4) ≤ c * n log n</code></li>
+<li>当 <code>n</code> 足够大时，这近似于 <code>(3/4)n log n ≤ c * n log n</code>。我们可以选择 <code>c = 3/4</code>，它小于1。所以条件满足。<br><strong>替换法</strong></li>
+</ul>
+</li>
+<li>思想：首先对T(n)的解做一个猜测（可以利用主方法作出假设），然后用归纳法证明所做猜测是否正确。</li>
+<li>例1：<code>T(n) = 2T(⌊n/2⌋) + n</code>，根据主方法猜测解为<code>T(n) = O(n log n)</code>。我们要证明存在常数 <code>c &gt; 0</code> 和 <code>n₀</code>，使得对于所有 <code>n ≥ n₀</code>，都有 <code>T(n) ≤ c * n * log(n)</code>。<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br><span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> ≤ <span class="hljs-number">2</span> <span class="hljs-operator">*</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> ⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋ <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br><span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> ≤ <span class="hljs-number">2</span> <span class="hljs-operator">*</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> <span class="hljs-punctuation">(</span>n<span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>n<span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> n <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>n<span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> n <span class="hljs-operator">*</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> n <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> n <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> n<br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> n <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">*</span> n<br><span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">*</span> n ≥ <span class="hljs-number">0</span><br><span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span> ≥ <span class="hljs-number">0</span><br><span class="hljs-built_in">c</span> ≥ <span class="hljs-number">1</span> <span class="hljs-operator">/</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br>只要我们选择的常数 `c` 满足 `c ≥ 1/log(2)`（例如，如果对数是底为<span class="hljs-number">2</span>，则 `c ≥ 1`），归纳就成立。<br></code></pre></td></tr></table></figure></li>
+<li>例2：<code>T(n) = T(⌊n/2⌋) + T(⌈n/2⌉) + 1</code>我们猜测 <code>T(n) = Θ(n)</code>。假设对于所有 <code>k &lt; n</code>，<code>T(k) ≤ c*k - d</code> 成立。<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-built_in">T</span><span class="hljs-punctuation">(</span>⌈n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌉<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br>     ≤ <span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-operator">*</span>⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋ <span class="hljs-operator">-</span> d<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-operator">*</span>⌈n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌉ <span class="hljs-operator">-</span> d<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">*</span> <span class="hljs-punctuation">(</span>⌊n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌋ <span class="hljs-operator">+</span> ⌈n<span class="hljs-operator">/</span><span class="hljs-number">2</span>⌉<span class="hljs-punctuation">)</span> <span class="hljs-operator">-</span> <span class="hljs-number">2</span>d <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br>     <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-operator">*</span>n <span class="hljs-operator">-</span> <span class="hljs-number">2</span>d <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br><span class="hljs-built_in">c</span><span class="hljs-operator">*</span>n <span class="hljs-operator">-</span> <span class="hljs-number">2</span>d <span class="hljs-operator">+</span> <span class="hljs-number">1</span> ≤ <span class="hljs-built_in">c</span><span class="hljs-operator">*</span>n <span class="hljs-operator">-</span> d<br><span class="hljs-operator">-</span><span class="hljs-number">2</span>d <span class="hljs-operator">+</span> <span class="hljs-number">1</span> ≤ <span class="hljs-operator">-</span>d<br><span class="hljs-number">1</span> ≤ d<br>只要我们选择常数 `d ≥ 1`（以及任意 `c &gt; 0`），归纳就成立。<br></code></pre></td></tr></table></figure>
+<strong>递归树法</strong><br>递归树法是一种将递推关系可视化的方法。它把递归调用过程画成一棵树，树的每个节点代表一个子问题的成本。通过计算树中每一层的总成本，然后将所有层的成本相加，就可以得到递推关系的总成本。</li>
+<li>例1：求解 <code>T(n) = 3T(n/4) + cn²</code>。<ul>
+<li>第 0 层 (根节点)：在顶层，我们将问题分解，这部分成本是 <code>cn²</code>。</li>
+<li>第 1 层：有 <code>3</code> 个节点，每个节点的规模是 <code>n/4</code>。每个节点的成本是 <code>c(n/4)² = cn²/16</code>。</li>
+<li>第 2 层：有 <code>3 * 3 = 3² = 9</code> 个节点，每个节点的规模是 <code>(n/4)/4 = n/16 = n/4²</code>。每个节点的成本是 <code>c(n/4²)² = cn²/256</code>。</li>
+<li>第 i 层：…</li>
+<li>总成本： <code>T(n) = cn² + (3/16)cn² + (3/16)²cn² + ... + (3/16)^(h-1)cn² + (叶子节点成本)</code>&#x3D; <code>cn² * [1 + (3/16) + (3/16)² + ... + (3/16)^(h-1)]</code>&lt; <code>(16/13) * cn²</code></li>
+</ul>
+</li>
+<li>例2：求解 <code>T(n) = T(n/2) + 2T(n/4) + n</code>。<ul>
+<li>这种情况下，构造的递归树，左右两边是不一样长的。因此要取最短和最长的边作为上界和下界。</li>
+<li>树的总高度由最长的路径决定，也就是沿着 <code>T(n/2)</code> 分支一直走下去的路径。 设树的高度为 <code>h</code>，则最长的路径满足：<code>n / 2^h = 1</code>。 解得 <code>h = log₂(n)</code>。</li>
+<li>总成本就是将所有层的成本相加： <code>T(n) = (第0层成本) + (第1层成本) + ... + (第h层成本)</code> <code>T(n) = n + n + n + ... + n</code> (共 <code>log₂(n)</code> 项)。得到<code>T(n) = n * log₂(n)</code>。</li>
+</ul>
+</li>
+</ul>
+<h5 id="三-平摊分析法"><a href="#三-平摊分析法" class="headerlink" title="三 平摊分析法"></a>三 平摊分析法</h5><p>平摊分析是指在某种数据结构上完成一系列操作，在最坏情况下所需的平均时间。<br>想象一个类似 C++ <code>std::vector</code> 或 Java <code>ArrayList</code> 的数据结构。我们执行一系列的 <code>INSERT</code> 操作。如果数组没满，插入一个元素很简单，成本为 <strong>1</strong>。如果数组满了，再插入一个元素，就需要“扩张”，单次扩张操作的成本是 <code>O(n)</code>。<br><strong>合计法</strong></p>
+<ul>
+<li>思想: “先斩后奏，秋后算账”。我们不管单次操作的成本，直接计算一整个操作序列的总成本，然后除以操作次数，得到平均成本。</li>
+<li><code>n</code> 次插入，每次插入本身至少花费1个单位成本。所以这部分是 <code>n</code>。</li>
+<li>扩张发生在数组大小为 <code>1, 2, 4, 8, ... , 2^k</code> (其中 <code>2^k &lt; n</code>) 时。拷贝的成本分别是 <code>1, 2, 4, 8, ...</code>。</li>
+<li>所以，总成本 <code>C(n) = n + (1 + 2 + 4 + 8 + ...)</code>，总成本 <code>C(n) &lt; n + 2n = 3n</code>。</li>
+<li>平摊成本 &#x3D; 总成本 &#x2F; 操作次数 &#x3D; <code>C(n) / n &lt; 3n / n = 3</code>。<br><strong>记账法</strong></li>
+<li>思想: “未雨绸缪，提前存钱”。我们为每个操作设定一个固定的<strong>平摊开销</strong>（或称“记账费用”），这个费用通常比实际的便宜操作要高一点。</li>
+<li>因为我们为每次操作固定收取3个单位的费用，并且这个费用足以支付所有可能情况下的实际开-销（通过预存信用），所以我们可以说，<code>INSERT</code> 操作的平摊成本是 <code>O(1)</code>。<br><strong>势函数方法</strong></li>
+<li>势函数法借鉴了物理学中“势能”的概念。势函数 (Φ(D))衡量当前状态“积蓄”了多少“能量”或“不稳定程度”。一个高势能的状态意味着系统很“紧张”，即将发生昂贵的操作（像一个被高度压缩的弹簧）。一个低势能的状态则很“放松”。</li>
+<li>核心公式: 第 <code>i</code> 次操作的平摊成本 (Amortized Cost) <code>ĉᵢ</code> 被定义为：<code>ĉᵢ = cᵢ + Φ(Dᵢ) - Φ(Dᵢ₋₁)</code>。 <code>cᵢ</code>: 第 <code>i</code> 次操作的实际成本 (Actual Cost)，<code>Φ(Dᵢ) - Φ(Dᵢ₋₁)</code>是势前后的变化量 <code>ΔΦ</code>。</li>
+<li>我们需要一个函数来描述“危险程度”。使用动态数组的例子。设 <code>num</code> 为数组中的元素数量，<code>size</code> 为数组的分配容量。适合的势函数是：<code>Φ(D) = 2 * num - size。</code>当 <code>num</code> 接近 <code>size</code> 时，系统很“危险”，势应该很高。当数组刚扩张后，<code>num</code> 大约是 <code>size/2</code>，系统很“安全”，势应该很低。</li>
+<li>便宜操作时，<code>ΔΦ = Φ_after - Φ_before = (2*num - size) - (2*num - 2 - size) = 2</code>，得出： <code>ĉᵢ = cᵢ + ΔΦ = 1 + 2 = 3</code></li>
+<li>昂贵操作时， <code>ΔΦ = Φ_after - Φ_before = 2 - m</code>，得出：<code>ĉᵢ = cᵢ + ΔΦ = (m + 1) + (2 - m) = 3</code></li>
+<li>通过势函数 <code>Φ(D) = 2 * num - size</code>，我们证明了无论是便宜的插入还是昂贵的扩张插入，其<strong>平摊成本都是一个常数3</strong>。因此，动态数组插入操作的平摊时间复杂度为 **O(1)**。</li>
+</ul>
+<h5 id="四-算法正确性分析"><a href="#四-算法正确性分析" class="headerlink" title="四 算法正确性分析"></a>四 算法正确性分析</h5><p><strong>循环不变式法</strong><br>我们以插入排序的证明为例：</p>
+<ul>
+<li>初始化：循环开始时 <code>j=2</code>。子数组 <code>A[1...1]</code> 只包含一个元素，它本身就是有序的。所以不变式成立。</li>
+<li>保持：假设在处理 <code>A[j]</code> 之前，<code>A[1...j-1]</code> 是有序的（这是归纳假设）。循环体的工作就是将 <code>A[j]</code> 插入到 <code>A[1...j-1]</code> 的正确位置，形成一个新的有序子数组 <code>A[1...j]</code>。当 <code>j</code> 增加到 <code>j+1</code>，下一次迭代开始时，<code>A[1...j]</code> 这个新的、更长的子数组就是有序的。所以不变式得以保持。</li>
+<li>终止：循环在 <code>j</code> 增加到 <code>n+1</code> 时结束。根据不变式，此时子数组 <code>A[1...n]</code> 是有序的。<code>A[1...n]</code> 就是整个数组。因此，整个数组被成功排序，算法正确。<br><strong>贪心选择法</strong><br>这专门用于证明贪心算法的正确性。以活动选择问题为例。有一堆活动，每个都有开始和结束时间，目标是选择出尽可能多的、互相不冲突的活动。贪心策略是每次都选择结束时间最早的那个活动。</li>
+<li>贪心选择性质：假设活动 <code>a₁</code> 是所有活动中结束时间最早的。我们需要证明存在一个最优解包含 <code>a₁</code>。因为 <code>a₁</code> 是结束时间最早的，所以 <code>a₁</code> 的结束时间一定早于或等于 <code>aⱼ</code> 的结束时间。</li>
+<li>最优子解构：当我们选择了 <code>a₁</code> 后，问题就变成了：在所有与 <code>a₁</code> 不冲突（即开始时间在 <code>a₁</code> 结束之后）的活动中，再选择尽可能多的活动。<br><strong>归纳法</strong><br>以归并排序的证明为例：</li>
+<li>基本情况: 当输入数组的规模 <code>n=1</code> 时，数组只有一个元素，它天然就是有序的。算法直接返回，结果正确。</li>
+<li>归纳假设：假设归并排序对于任何规模小于 <code>n</code> 的数组都能正确排序。</li>
+<li>算法调用 <code>merge</code> 函数。<code>merge</code> 函数的功能是合并两个已排序的数组为一个大的已排序数组</li>
+<li>既然两个半区都已正确排序，并且合并操作也是正确的，那么最终得到的规模为 <code>n</code> 的数组也一定是正确排序的</li>
+</ul>
+<h4 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h4><h5 id="一-网络流"><a href="#一-网络流" class="headerlink" title="一 网络流"></a>一 网络流</h5><p><strong>基础方法</strong><br>最大流是在图论中提出的一种算法模型。最大流就是从一个指定的源点到汇点的最大流量，在流动的过程中需要遵守一些规则。即流量不超过其最大流量，流入的总量必须等于流出来的总量。</p>
+<ul>
+<li>上图是含有一个流的流网络，每条边上的标注f（u，v）&#x2F;c（u，v）含义是：流量&#x2F;容量。</li>
+<li>网络流量值&#x3D;流出源点的流量总和&#x3D;汇入汇点的流量总和，记为|f|</li>
+<li>基础的最大流的方法是，每次找到一条从起点到终点的路径，找到能通过的最大流量再减去，直到无法找到一条路径。剩下的图被称作残差图。</li>
+<li>增广路经：指在Gf中一条从s到t的简单路径 ，可以增加流的最大流量</li>
+<li>得到残差图和原来的图后，相减可以计算出流量。计算从起点开始的流量大小，就能计算出总的流量。</li>
+</ul>
+<p><strong>Ford-Fulkerson算法</strong></p>
+<ul>
+<li>这个算法和简单方法的区别在于，选择一条路径之后，会添加一条反向路径，便于反悔。反向路径的优势在于，相比原来的，能发现更多的路径。</li>
+<li>算法结束后，不再需要反向路径，溢出反向路径。用原图减去残差图，相减计算出流量。</li>
+<li>最坏的情况下，每次循环让网络中的流量增加一份，最多循环次数&#x3D;&#x3D;最大流数</li>
+</ul>
+<p><strong>Edmonds-Karp算法</strong></p>
+<ul>
+<li>和<code>Ford-Fulkerson算法</code>几乎完全一致，在寻找最短路径时，将图看作无权图，来找到最小路径。</li>
+<li>算法时间复杂度为O(VE2)，E是结点的数量，V是边的数量。最坏时间复杂度要比原来的算法好。</li>
+</ul>
+<p><strong>Dinic’s算法</strong></p>
+<ul>
+<li>阻塞流：当前水流流过之后，已经无法再让更多的水流从起点流向终点了，这样的流被称作阻塞流。</li>
+<li>Level Graph: 指是从起点开始，这个点是第几层</li>
+<li>每一轮都构造一个Level Graph，每次都找到一条阻塞流。然后进入下一轮，直到无法找到阻塞流为止。</li>
+</ul>
+<p><strong>最小割问题</strong></p>
+<ul>
+<li>将流网络划分成两个部分，两个部分没有交集。且分割之后，起点无法再流向终点。</li>
+<li>将隔断的边的容量相加，就可以得到S-T-Cut的容量。</li>
+<li>容量最小的隔断方法就是最小割，最小割并不唯一。</li>
+<li>有定理：最大流的流量&#x3D;最小割的容量</li>
+<li>要找到最小割，可以先用最大流算法，得到残差图。然后将起点能到达的点划分为S，将不能到达的点划为T即可。</li>
+</ul>
+<h5 id="二-二分图"><a href="#二-二分图" class="headerlink" title="二 二分图"></a>二 二分图</h5><p><strong>二分图的概念</strong></p>
+<ul>
+<li>存在点的集合s和点的集合v，s和v的集合之中没有互相匹配的边，只存在s和v之间的匹配边。这样的图被称为二部图。</li>
+</ul>
+<p><strong>二分图的判定</strong></p>
+<ul>
+<li>判断一个图是否为二分图，可以用染色的方法，交替将点染为红色和蓝色。如果染色的过程中，没有相邻的结点染成相同的颜色，则是一个二部图。</li>
+<li>具体的算法实现是：使用bfs的原理建立一个队列遍历图。图会加入未遍历过的检点，当发现点已经遍历的点时，就检验一下与其是否有冲突。</li>
+<li>图可能不是一个连通图，这种清空需要继续染色。<br><strong>最大匹配</strong></li>
+<li>匹配：一组边，而且这组边不会指向或从相同的点开始。</li>
+<li>最大匹配：边的数量最大时，就被称为最大匹配。</li>
+<li>最大匹配问题可以被转换为最大流问题</li>
+<li>当二部图有权重时，需要使用匈牙利算法求解。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" class="category-chain-item">编程学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>算法设计</div>
+      <div>http://example.com/2025/06/21/algorithm/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Mayegg</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 21, 2025</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Updated on</div>
+          <div>June 21, 2025</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/04/k8s/" title="K8S框架的学习">
+                        <span class="hidden-mobile">K8S框架的学习</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
