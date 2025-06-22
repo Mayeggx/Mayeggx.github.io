@@ -27,7 +27,7 @@
 <meta property="og:description" content="算法设计复习数据结构一 红黑树红黑树的性质  根节点和叶子节点为黑色 红不相邻：如果某个节点为红色，则它的左右孩子节点均为黑色 对于树中的任意一个节点，从该节点出发到其他叶子节点中包含相同的黑色节点数量  红黑树的定理  插入、删除、查找的时间复杂度均为lgn 具有n个内部结点的红黑树高度h最多为2lg(n+1)  ，即h&#x3D;O（lgn） 黑高度：黑高度bh(x)表示从x结点出发(不包含x">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-21T11:36:12.000Z">
-<meta property="article:modified_time" content="2025-06-21T11:49:12.358Z">
+<meta property="article:modified_time" content="2025-06-22T10:41:14.737Z">
 <meta property="article:author" content="Mayegg">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -204,7 +204,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k words
+          8.1k words
         
       </span>
     
@@ -215,7 +215,7 @@
         
         
         
-          67 mins
+          68 mins
         
       </span>
     
@@ -279,6 +279,40 @@
 <li>黑高度：黑高度bh(x)表示从x结点出发(不包含x结点)到其叶结点路径上的黑色结点个数。</li>
 <li>令f为具有n个结点的红黑树扩张后的一个域，如果结点x的f域值仅需通过结点x、left[x]、right[x]以及f(left[x])、f(right[x])就可获得，那么性能将保持为lgn。下面的序统计树和区间树都是这样的例子，他们的size和max都是通过左右子树直接获得的。</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>​<strong>​公式类型​</strong>​</th>
+<th>​<strong>​计算公式​</strong>​</th>
+<th>​<strong>​说明​</strong>​</th>
+<th>​<strong>​示例（n&#x3D;15 或 k&#x3D;2）​</strong>​</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最小高度 hmin​</td>
+<td>⌊log2​(n+1)⌋</td>
+<td>全黑或接近完全二叉树</td>
+<td>n&#x3D;15 → hmin​&#x3D;4</td>
+</tr>
+<tr>
+<td>最大高度 hmax​</td>
+<td>2⋅⌈log2​(n+1)⌉</td>
+<td>红黑交替，路径最长是最短2倍</td>
+<td>n&#x3D;15 → hmax​&#x3D;8</td>
+</tr>
+<tr>
+<td>最少结点数（黑高 k）</td>
+<td>2k−1</td>
+<td>全黑满二叉树</td>
+<td>k&#x3D;2 → nmin​&#x3D;3</td>
+</tr>
+<tr>
+<td>最多结点数（黑高 k）</td>
+<td>22k−1</td>
+<td>红黑交替满二叉树</td>
+<td>k&#x3D;2 → nmax​&#x3D;15</td>
+</tr>
+</tbody></table>
 <p><strong>【应用】序统计树</strong></p>
 <ol>
 <li>概念：本质上是一颗平衡二叉搜索树，通常是红黑树，每个节点上增加了一个额外的属性<code>size</code></li>
@@ -326,7 +360,7 @@
 </ol>
 <ul>
 <li>继续上述的例子，二根堆会建立一个根表，在这里的根表为：<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">head[H] -&gt; <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">12</span>)</span> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">2</span>)</span> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">1</span>)</span> -&gt;</span> NULL<br>           |      |      |<br>          B₀     B₂     B₃<br>         Tree   Tree   Tree<br></code></pre></td></tr></table></figure></li>
-<li>可见，根表是一个单链表，连接所有二项树的根节点，并且按照度增序排序。</li>
+<li>可见，根表是一个<code>单链表</code>，连接所有二项树的根节点，并且按照度增序排序。</li>
 </ul>
 <p><strong>二项堆的操作</strong></p>
 <ol>
@@ -364,14 +398,14 @@
 <li>根表的度不唯一</li>
 <li>根表不需要按照根度递增排序</li>
 <li>表头指针改用Min[H]表示，指向根表中具有最小值的树根结点，如在这里指向节点3</li>
-<li>根表中的兄弟节点之间，采用双向循环链表的模式</li>
+<li>根表中的兄弟节点之间，采用<code>双向循环</code>链表的模式</li>
 </ul>
 <p><strong>Fib堆的操作</strong></p>
 <ol>
 <li>创建空堆：平摊代价O(1)</li>
 <li>插入一个结点 ：平摊代价O(1)<ul>
 <li>x作为新树插入根表中</li>
-<li>检查<code>Min[H]</code>头指针</li>
+<li>检查<code>Min[H]</code>头指针，插入时只需将新节点与 <code>min</code> 指向的节点比较一次</li>
 <li>新结点x的mark域置为false</li>
 </ul>
 </li>
@@ -513,14 +547,8 @@
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr>
-<td align="center">这里k的意思是，排除一个当前序号的矩阵，并将剩下部分用括号括起来。将它们组合起来，最终的加括号方式为： (A₁ (A₂ (A₃ A₄)))</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
 </tbody></table>
+<p>这里k的意思是，在这里将矩阵划分为两边<br>加括号方式为： (A₁ (A₂ (A₃ A₄)))</p>
 <p><strong>最长公共子序列</strong><br>即判断两个字符串的公共序列。在构造dp时，有三种转移方式，分别为删除、添加和修改。特别的，当字符串相同时，修改的代价为0。算法时间：O（mn）m、n分别是两个序列的长度。</p>
 <p><strong>最优二叉查找树</strong></p>
 <ul>
@@ -914,7 +942,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>June 21, 2025</div>
+          <div>June 22, 2025</div>
         </div>
       
       
