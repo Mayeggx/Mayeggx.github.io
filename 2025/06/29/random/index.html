@@ -27,7 +27,7 @@
 <meta property="og:description" content="随机过程复习一 概率论核心定义 随机试验 (E)：一个结果不确定的过程或实验。例如，抛硬币、掷骰子、测量产品的寿命。 样本空间 (Ω)：随机试验所有可能结果的集合。集合中的每个元素（e 或 ω）称为一个样本点。 事件 (A)：样本空间的任意一个子集。我们关心某个事件是否“发生”。 σ-代数 (F)：它是一个由样本空间的子集（即事件）构成的集类（集合的集合） 可测空间 (Ω, F)：由样本空间 Ω">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-29T07:51:17.000Z">
-<meta property="article:modified_time" content="2025-06-29T11:00:49.598Z">
+<meta property="article:modified_time" content="2025-06-29T11:52:59.860Z">
 <meta property="article:author" content="Mayegg">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9k words
+          12k words
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          76 mins
+          101 mins
         
       </span>
     
@@ -879,6 +879,291 @@
 <li>复合泊松过程: 每次事件发生时，伴随一个随机大小的量。形式为 $X(t) = \sum_{i=1}^{N(t)} Y_i$。一家保险公司。理赔申请的到达（事件发生）可以看作一个泊松过程。但每次理赔的金额 <code>Y_i</code> 是一个随机变量（有的赔1千，有的赔10万）。到 <code>t</code> 时刻为止，公司总的理赔金额 <code>X(t)</code> 就是一个复合泊松过程。它是由“来了多少个”和“每个多大”两个随机因素共同决定的。</li>
 <li>条件泊松过程: 事件发生率 $\lambda$ 本身是一个随机变量。一个网站服务器收到的请求。我们知道服务器有两种状态：“正常日”和“促销日”。我们事先不知道今天是“正常日”还是“促销日”（比如，促销活动是随机触发的）。这里的发生率 <code>λ</code> 本身就是一个随机变量，它可能等于10，也可能等于500。这就是条件泊松过程。   </li>
 </ul>
+<h4 id="五-离散的马尔可夫"><a href="#五-离散的马尔可夫" class="headerlink" title="五 离散的马尔可夫"></a>五 离散的马尔可夫</h4><h5 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h5><ul>
+<li>马尔可夫性质：马尔可夫性质，又称为“无记忆性”(Memorylessness)，是马尔可夫过程的核心。它指出，一个随机过程的未来状态的条件概率分布，仅仅取决于其当前状态，而与它在当前状态之前的事件序列无关。</li>
+<li>离散时间马尔可夫链的定义<ul>
+<li><strong>状态空间 (State Space) $S$</strong>: 一个可数集合，包含了所有可能的状态。</li>
+<li><strong>转移概率矩阵 (Transition Probability Matrix) $P$</strong>: 一个方阵，其中元素 $P_{ij}$ 表示从状态 $i$ 转移到状态 $j$ 的单步概率。</li>
+<li><strong>初始概率分布 (Initial Probability Distribution) $\pi_0$</strong>: 一个行向量，表示在时间步 $0$ 时，系统处于各个状态的概率。</li>
+</ul>
+</li>
+<li>转移概率矩阵<ul>
+<li><strong>非负性</strong>: 所有元素 $P_{ij} \ge 0$。</li>
+<li><strong>行和为1</strong>: 矩阵的每一行元素之和必须等于 1。这表示从任何一个状态出发，必须转移到状态空间中的某个状态（包括自身）。</li>
+</ul>
+</li>
+</ul>
+<h6 id="示例：天气模型"><a href="#示例：天气模型" class="headerlink" title="示例：天气模型"></a>示例：天气模型</h6><p>假设某地的天气只有两种状态：晴天 (Sunny) 和雨天 (Rainy)。状态空间 $S = {\text{Sunny}, \text{Rainy}}$。<br>我们观察到如下转移规律：</p>
+<ul>
+<li>如果今天晴天，明天有 90% 的概率还是晴天，10% 的概率会下雨。</li>
+<li>如果今天雨天，明天有 40% 的概率会转晴，60% 的概率会继续下雨。</li>
+</ul>
+<p>对应的转移概率矩阵 $P$ 为：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">Sunny</th>
+<th style="text-align:left">Rainy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Sunny</strong></td>
+<td style="text-align:left">0.9</td>
+<td style="text-align:left">0.1</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Rainy</strong></td>
+<td style="text-align:left">0.4</td>
+<td style="text-align:left">0.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+P = \begin{pmatrix} 0.9 & 0.1 \\ 0.4 & 0.6 \end{pmatrix}</script><p>马尔可夫链的行为也可以通过状态转移图来可视化。图中的节点代表状态，带箭头的边代表可能的状态转移，边上的权重则是转移概率。</p>
+<p>天气模型的状态转移图如下：</p>
+<pre><code class=" mermaid">graph TD
+    A[Sunny] --&gt;|0.9| A
+    A --&gt;|0.1| B[Rainy]
+    B --&gt;|0.4| A
+    B --&gt;|0.6| B
+</code></pre>
+<h5 id="n步转移概率"><a href="#n步转移概率" class="headerlink" title="n步转移概率"></a>n步转移概率</h5><p><strong>Chapman-Kolmogorov 方程</strong> 给出了计算n步转移概率的通用方法：<br>对于任意 $n, m \ge 0$ 和任意状态 $i, j$，有</p>
+<script type="math/tex; mode=display">
+P_{ij}^{(n+m)} = \sum_{k \in S} P_{ik}^{(n)} P_{kj}^{(m)}</script><p>该方程表明，从 $i$ 到 $j$ 的 $(n+m)$ 步转移，可以分解为先用 $n$ 步从 $i$ 到某个中间状态 $k$，再用 $m$ 步从 $k$ 到 $j$。</p>
+<p>假设某地的天气可以用一个双状态的马尔可夫链来描述，状态集 $S = {1 (\text{晴天}), 2 (\text{雨天})}$。<br>其单步转移概率矩阵为：</p>
+<script type="math/tex; mode=display">
+P = P^{(1)} = \begin{pmatrix} 0.8 & 0.2 \\ 0.6 & 0.4 \end{pmatrix}</script><p>其中 $P<em>{11}=0.8$ 表示今天晴天，明天也晴天的概率是0.8。$P</em>{12}=0.2$ 表示今天晴天，明天下雨的概率是0.2，以此类推。</p>
+<p>现在我们想计算 <strong>今天晴天，后天也晴天</strong> 的概率，即 $P_{11}^{(2)}$。</p>
+<p>根据 Chapman-Kolmogorov 方程 (取 $n=1, m=1, i=1, j=1$):</p>
+<script type="math/tex; mode=display">
+P_{11}^{(2)} = \sum_{k \in \{1,2\}} P_{1k}^{(1)} P_{k1}^{(1)} = P_{11}^{(1)}P_{11}^{(1)} + P_{12}^{(1)}P_{21}^{(1)}</script><p>代入数值：</p>
+<script type="math/tex; mode=display">
+P_{11}^{(2)} = (0.8)(0.8) + (0.2)(0.6) = 0.64 + 0.12 = 0.76</script><p>这个计算的直观解释是：从晴天到两天后的晴天，有两种途径：</p>
+<ol>
+<li>晴天 -&gt; 晴天 -&gt; 晴天 (概率 $0.8 \times 0.8 = 0.64$)</li>
+<li>晴天 -&gt; 雨天 -&gt; 晴天 (概率 $0.2 \times 0.6 = 0.12$)<br>将这两种互斥情况的概率相加，得到总概率 $0.64 + 0.12 = 0.76$。</li>
+</ol>
+<p>同时，我们也可以通过计算转移矩阵的平方来得到两步转移矩阵 $P^{(2)}$：</p>
+<script type="math/tex; mode=display">
+P^{(2)} = P^2 = \begin{pmatrix} 0.8 & 0.2 \\ 0.6 & 0.4 \end{pmatrix} \begin{pmatrix} 0.8 & 0.2 \\ 0.6 & 0.4 \end{pmatrix} = \begin{pmatrix} 0.76 & 0.24 \\ 0.72 & 0.28 \end{pmatrix}</script><p>$P^{(2)}$ 的第1行第1列元素正是我们计算出的 $P_{11}^{(2)} = 0.76$。</p>
+<h5 id="可达性与不可约"><a href="#可达性与不可约" class="headerlink" title="可达性与不可约"></a>可达性与不可约</h5><ul>
+<li><strong>可达 (Accessible)</strong>: 如果从状态 $i$ 出发，经过有限步（$n \ge 0$）能够到达状态 $j$（即 $P_{ij}^{(n)} &gt; 0$），则称状态 $j$ 从状态 $i$ <strong>可达</strong>，记作 $i \to j$。</li>
+<li><strong>互通 (Communicate)</strong>: 如果状态 $i$ 和 $j$ 相互可达（即 $i \to j$ 且 $j \to i$），则称 $i$ 和 $j$ <strong>互通</strong>，记作 $i \leftrightarrow j$。</li>
+<li><strong>互通类 (Communicating Class)</strong>: 互通关系将状态空间划分为若干个互通类。同一个类中的所有状态都是相互互通的。</li>
+<li>如果一个马尔可夫链只包含一个互通类，即链中任意两个状态都是相互互通的，则称该马尔可夫链是<strong>不可约的 (Irreducible)</strong>。否则，称其为<strong>可约的 (Reducible)</strong>。如果不连通就可约。<ul>
+<li><strong>判断方法</strong>：检查状态转移图是否为<strong>强连通图</strong>。如果是，则链是不可约的。</li>
+<li><strong>天气模型示例</strong>：由于 Sunny $\leftrightarrow$ Rainy，该链是不可约的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="周期性"><a href="#周期性" class="headerlink" title="周期性"></a>周期性</h5><ul>
+<li><strong>周期 (Period)</strong>: 状态 $i$ 的周期 $d(i)$ 是所有从 $i$ 出发返回到 $i$ 的步数 $n$ 的最大公约数。$d(i) = \text{gcd}{n \ge 1 | P_{ii}^{(n)} &gt; 0}$。</li>
+<li><strong>非周期状态 (Aperiodic)</strong>: 如果 $d(i) = 1$，则状态 $i$ 是非周期的。</li>
+<li><strong>性质</strong>: 同一个互通类中的所有状态具有相同的周期。因此，我们可以讨论一个不可约马尔可夫链的周期。</li>
+<li><strong>判断方法</strong>: 对于一个互通类，只需判断其中一个状态的周期即可。如果一个状态存在自环（即 $P_{ii} &gt; 0$），那么它的周期一定是1，该类就是非周期的。</li>
+</ul>
+<p><strong>示例1</strong>: 考虑以下马尔可夫链：</p>
+<pre><code class=" mermaid">graph TD
+    A --&gt; B
+    B --&gt; C
+    C --&gt; A
+</code></pre>
+<ul>
+<li><strong>计算状态 A 的周期</strong>:<ul>
+<li>从状态 A 出发，可以经过 3 步返回 A (A → B → C → A)。</li>
+<li>也可以经过 6 步返回 A (A → B → C → A → B → C → A)。</li>
+<li>所有可能返回 A 的步数集合为 ${3, 6, 9, \dots}$。</li>
+<li>这些步数的最大公约数是 $\text{gcd}(3, 6, 9, \dots) = 3$。</li>
+<li>因此，状态 A 的周期 $d(A) = 3$。</li>
+</ul>
+</li>
+<li>由于状态 A, B, C 构成一个互通类，所以 $d(A) = d(B) = d(C) = 3$。该马尔可夫链是周期的，周期为 3。</li>
+</ul>
+<p><strong>示例2</strong>:考虑以下马尔可夫链：</p>
+<pre><code class=" mermaid">graph TD
+    A --&gt; A
+    A --&gt; B
+    B --&gt; C
+    C --&gt; A
+</code></pre>
+<ul>
+<li><strong>分析</strong>：<ul>
+<li>状态 A 可以通过1步回到自身（A→A），所以 $P_{AA}^{(1)} &gt; 0$。</li>
+<li>状态 A 也可以通过3步回到自身（A→B→C→A），所以 $P_{AA}^{(3)} &gt; 0$。</li>
+<li>继续分析，A 还可以通过4步（A→A→A→A）、5步（A→A→B→C→A）等回到自身。</li>
+</ul>
+</li>
+</ul>
+<p>计算所有可能的步数 $n$，使得 $P_{AA}^{(n)} &gt; 0$，可以发现 $n=1,3,4,5,\ldots$，即 $n \geq 1$ 且 $n \neq 2$。<br>这些步数的最大公约数是1，因此 $d(A) = 1$。</p>
+<p><strong>结论</strong>：该马尔可夫链是非周期的（aperiodic）。</p>
+<h5 id="平稳分布"><a href="#平稳分布" class="headerlink" title="平稳分布"></a>平稳分布</h5><p>如果一个马尔可夫链的某个概率分布 $\pi$ 使得在经过一次转移后，其概率分布保持不变，那么这个分布 $\pi$ 就被称为<strong>平稳分布</strong>。</p>
+<p>平稳分布 $\pi$ 是一个行向量，满足以下条件：</p>
+<script type="math/tex; mode=display">
+\pi P = \pi</script><p>同时，$\pi$ 的所有分量之和必须为 1。</p>
+<p>平稳分布揭示了马尔可夫链在长时间运行后的<strong>长期行为</strong>或<strong>稳态特性</strong>。</p>
+<p><strong>存在性与唯一性定理</strong>：对于一个<strong>不可约</strong>且<strong>非周期</strong>的有限状态马尔可夫链，存在唯一的平稳分布 $\pi$。并且，无论初始分布 $\pi_0$ 是什么，当 $n \to \infty$ 时，系统在任意时刻处于状态 $j$ 的概率都会收敛到 $\pi_j$。</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} P_{ij}^{(n)} = \pi_j, \quad \text{for all } i, j \in S</script><p>这意味着，长期来看，系统处于各个状态的概率与初始状态无关。</p>
+<p>设平稳分布为 $\pi = [\pi_S, \pi_R]$，其中 $\pi_S$ 是晴天的概率，$\pi_R$ 是雨天的概率。<br>我们需要解方程组：</p>
+<script type="math/tex; mode=display">
+[\pi_S, \pi_R] \begin{pmatrix} 0.9 & 0.1 \\ 0.4 & 0.6 \end{pmatrix} = [\pi_S, \pi_R]</script><p>以及</p>
+<script type="math/tex; mode=display">
+\pi_S + \pi_R = 1</script><p>展开矩阵乘法得到：</p>
+<ol>
+<li>$0.9 \pi_S + 0.4 \pi_R = \pi_S$</li>
+<li>$0.1 \pi_S + 0.6 \pi_R = \pi_R$</li>
+<li>$\pi_S + \pi_R = 1$</li>
+</ol>
+<p>从第一个方程简化得到：$0.4 \pi_R = 0.1 \pi_S \implies \pi_S = 4 \pi_R$。<br>将其代入第三个方程：$4 \pi_R + \pi_R = 1 \implies 5 \pi_R = 1 \implies \pi_R = 0.2$。<br>因此，$\pi_S = 4 \times 0.2 = 0.8$。</p>
+<p>所以，该天气模型的平稳分布为 $\pi = [0.8, 0.2]$。这意味着，长期来看，这个地方大约有 80% 的日子是晴天，20% 的日子是雨天。</p>
+<h5 id="吸收马尔可夫链"><a href="#吸收马尔可夫链" class="headerlink" title="吸收马尔可夫链"></a>吸收马尔可夫链</h5><h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6><ul>
+<li><strong>吸收态 (Absorbing State)</strong>: 如果一个状态 $i$ 一旦进入就无法离开，即 $P_{ii} = 1$，则称状态 $i$ 为吸收态。</li>
+<li><strong>吸收马尔可夫链</strong>: 一个马尔可夫链如果至少包含一个吸收态，并且从任意一个非吸收态（暂态）出发，都能在有限步内到达某个吸收态，则称其为吸收马尔可夫链。</li>
+</ul>
+<p>假设有三个状态：$1$（暂态）、$2$（暂态）、$3$（吸收态）。转移概率如下：</p>
+<ul>
+<li>从$1$可以以概率$0.5$转移到$2$，以概率$0.5$转移到$3$；</li>
+<li>从$2$只能以概率$1$转移到$3$；</li>
+<li>$3$为吸收态，$P_{33}=1$。</li>
+</ul>
+<pre><code class=" mermaid">%% 吸收马尔可夫链状态转移图
+graph LR
+    1((1))
+    2((2))
+    3((3))
+    1 -- &quot;0.5&quot; --&gt; 2
+    1 -- &quot;0.5&quot; --&gt; 3
+    2 -- &quot;1&quot; --&gt; 3
+    3 -- &quot;1&quot; --&gt; 3
+</code></pre>
+<p>对于一个吸收马尔可夫链，我们关心两个核心问题：</p>
+<ol>
+<li>从某个暂态出发，最终被各个吸收态吸收的概率是多少？</li>
+<li>从某个暂态出发，到达吸收态之前，平均需要经过多少步？</li>
+</ol>
+<p>为了分析这些问题，通常将转移矩阵 $P$ 重新排列成标准形式：</p>
+<script type="math/tex; mode=display">
+P = \begin{pmatrix} Q & R \\ 0 & I \end{pmatrix}</script><p>其中：</p>
+<ul>
+<li>$Q$: 暂态到暂态的转移概率矩阵。</li>
+<li>$R$: 暂态到吸收态的转移概率矩阵。</li>
+<li>$0$: 吸收态到暂态的转移概率矩阵（全为0）。</li>
+<li>$I$: 吸收态到吸收态的转移概率矩阵（单位阵）。</li>
+</ul>
+<p><strong>基本吸收矩阵 (Fundamental Matrix)</strong> $N$ 定义为：</p>
+<script type="math/tex; mode=display">
+N = (I - Q)^{-1} = I + Q + Q^2 + \dots</script><p>矩阵 $N$ 的元素 $N_{ij}$ 表示从暂态 $i$ 出发，在被吸收前，访问暂态 $j$ 的期望次数。</p>
+<p><strong>吸收概率 (Absorption Probabilities)</strong>:<br>从暂态出发，最终被各个吸收态吸收的概率矩阵 $B$ 可以通过以下公式计算：</p>
+<script type="math/tex; mode=display">
+B = N R</script><p>矩阵 $B$ 的元素 $B_{ij}$ 表示从暂态 $i$ 出发，最终被吸收态 $j$ 吸收的概率。</p>
+<p><strong>到达吸收态的期望步数 (Expected Steps to Absorption)</strong>:<br>从暂态 $i$ 出发，到达某个吸收态的期望步数 $t_i$ 是矩阵 $N$ 的第 $i$ 行各元素之和。如果 $t$ 是一个列向量，其中每个元素为 $t_i$，则：</p>
+<script type="math/tex; mode=display">
+t = N \mathbf{1}</script><p>其中 $\mathbf{1}$ 是一个全为1的列向量。</p>
+<h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><p>有三个状态，$1$（暂态）、$2$（暂态）、$3$（吸收态），转移概率如下：</p>
+<pre><code class=" mermaid">%% 吸收马尔可夫链状态转移图
+graph LR
+    1((1))
+    2((2))
+    3((3))
+    1 -- &quot;0.5&quot; --&gt; 2
+    1 -- &quot;0.5&quot; --&gt; 3
+    2 -- &quot;1&quot; --&gt; 3
+    3 -- &quot;1&quot; --&gt; 3
+</code></pre>
+<p>其转移矩阵 $P$ 为：</p>
+<script type="math/tex; mode=display">
+P = \begin{pmatrix}
+0 & 0.5 & 0.5 \\
+0 & 0 & 1 \\
+0 & 0 & 1
+\end{pmatrix}</script><p>将其按标准形式排列，暂态为$1,2$，吸收态为$3$：</p>
+<script type="math/tex; mode=display">
+P = \begin{pmatrix}
+Q & R \\
+0 & I
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0.5 & 0.5 \\
+0 & 0 & 1 \\
+0 & 0 & 1
+\end{pmatrix}</script><p>其中</p>
+<script type="math/tex; mode=display">
+Q = \begin{pmatrix}
+0 & 0.5 \\
+0 & 0
+\end{pmatrix}, \quad
+R = \begin{pmatrix}
+0.5 \\
+1
+\end{pmatrix}, \quad
+I = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}</script><p><strong>1. 吸收概率 $B = N R$</strong></p>
+<p>首先计算基本吸收矩阵 $N = (I - Q)^{-1}$：</p>
+<script type="math/tex; mode=display">
+I - Q = \begin{pmatrix}
+1 & -0.5 \\
+0 & 1
+\end{pmatrix}</script><p>其逆矩阵为</p>
+<script type="math/tex; mode=display">
+N = \begin{pmatrix}
+1 & 0.5 \\
+0 & 1
+\end{pmatrix}</script><p>计算 $B = N R$：</p>
+<script type="math/tex; mode=display">
+B = \begin{pmatrix}
+1 & 0.5 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+0.5 \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \times 0.5 + 0.5 \times 1 \\
+0 \times 0.5 + 1 \times 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}</script><p><strong>结论：</strong></p>
+<ul>
+<li>从状态$1$或$2$出发，最终被状态$3$吸收的概率都是$1$。</li>
+</ul>
+<p><strong>2. 到达吸收态的期望步数 $t = N \mathbf{1}$</strong></p>
+<p>$\mathbf{1}$为全1列向量：</p>
+<script type="math/tex; mode=display">
+\mathbf{1} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}</script><script type="math/tex; mode=display">
+t = N \mathbf{1} = \begin{pmatrix}
+1 & 0.5 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 + 0.5 \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1.5 \\
+1
+\end{pmatrix}</script><p><strong>结论：</strong></p>
+<ul>
+<li>从状态$1$出发，平均经过$1.5$步到达吸收态；</li>
+<li>从状态$2$出发，平均经过$1$步到达吸收态。</li>
+</ul>
 
                 
               </div>
@@ -1036,6 +1321,21 @@
 
 
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
