@@ -19,12 +19,12 @@
   <meta name="author" content="Mayegg">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用Agent批量制作anki卡片我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：  对于俚语等特殊表达，词典中没有直接对应的意思 查询单词时总要费劲心思的查询他在特定语句中的意义  于是，我设计了PicSubToAnki这款软件。 制作卡片的素材实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单词、">
+    <meta name="description" content="利用Agent批量制作anki卡片 我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：  对于俚语等特殊表达，词典中没有直接对应的意思 查询单词时总要费劲心思的查询他在特定语句中的意义  于是，我设计了PicSubToAnki这款软件。 制作卡片的素材 实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Agent批量制作anki卡片">
 <meta property="og:url" content="http://example.com/2025/05/25/picsubtoanki/index.html">
 <meta property="og:site_name" content="Mayegg&#39;s Blog">
-<meta property="og:description" content="利用Agent批量制作anki卡片我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：  对于俚语等特殊表达，词典中没有直接对应的意思 查询单词时总要费劲心思的查询他在特定语句中的意义  于是，我设计了PicSubToAnki这款软件。 制作卡片的素材实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单词、">
+<meta property="og:description" content="利用Agent批量制作anki卡片 我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：  对于俚语等特殊表达，词典中没有直接对应的意思 查询单词时总要费劲心思的查询他在特定语句中的意义  于是，我设计了PicSubToAnki这款软件。 制作卡片的素材 实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-25T14:42:04.000Z">
 <meta property="article:modified_time" content="2025-05-26T06:46:03.407Z">
@@ -270,29 +270,38 @@
             
               <div class="markdown-body">
                 
-                <h1 id="利用Agent批量制作anki卡片"><a href="#利用Agent批量制作anki卡片" class="headerlink" title="利用Agent批量制作anki卡片"></a>利用Agent批量制作anki卡片</h1><p>我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：</p>
+                <h1>利用Agent批量制作anki卡片</h1>
+<p>我一直都希望，在看完一部动画之后，能更便捷的把所有生词导入到anki卡片中。而使用普通的划词工具，总是显得不够智能，表现在：</p>
 <ul>
 <li>对于俚语等特殊表达，词典中没有直接对应的意思</li>
 <li>查询单词时总要费劲心思的查询他在特定语句中的意义</li>
 </ul>
 <p>于是，我设计了<a target="_blank" rel="noopener" href="https://github.com/Mayeggx/PicSubToAnki">PicSubToAnki</a>这款软件。</p>
-<h2 id="制作卡片的素材"><a href="#制作卡片的素材" class="headerlink" title="制作卡片的素材"></a>制作卡片的素材</h2><p>实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单词、当前的截图。<br>这样一般就能获得一个有上下文语境、并且能够会想起当前场景的优质卡片了。</p>
-<p>所以，这个软件的原素材是<code>当前字幕为文件名的截图文件</code>，将这种截图文件制作为anki卡片。<br>为了获得这样的截图文件，请使用<a target="_blank" rel="noopener" href="https://github.com/mpv-player/mpv">mpv播放器</a>，并打开<code>mpv.conf</code>文件，<br>加入设置<code>screenshot-template=&quot;%&#123;sub-text&#125;&quot;</code>。这样就可以得到这款软件所需要的文件类型。</p>
+<h2 id="制作卡片的素材">制作卡片的素材</h2>
+<p>实际上，要制作一个生词的anki卡片，需要的就是当前的字幕、需要查询的单词、当前的截图。<br>
+这样一般就能获得一个有上下文语境、并且能够会想起当前场景的优质卡片了。</p>
+<p>所以，这个软件的原素材是<code>当前字幕为文件名的截图文件</code>，将这种截图文件制作为anki卡片。<br>
+为了获得这样的截图文件，请使用<a target="_blank" rel="noopener" href="https://github.com/mpv-player/mpv">mpv播放器</a>，并打开<code>mpv.conf</code>文件，<br>
+加入设置<code>screenshot-template=&quot;%&#123;sub-text&#125;&quot;</code>。这样就可以得到这款软件所需要的文件类型。</p>
 <p>在看我完一集动画后，就可以得到很多这样的截图文件，把他们导入这个软件，就能批量制作卡片了。</p>
-<h2 id="软件的结构"><a href="#软件的结构" class="headerlink" title="软件的结构"></a>软件的结构</h2><p>软件主要分为三个部分：</p>
+<h2 id="软件的结构">软件的结构</h2>
+<p>软件主要分为三个部分：</p>
 <ul>
 <li><code>main.py</code>使用python的内置图形界面tkinter实现可视化界面，实现截图文件的打开预览，并调用其他模块。</li>
 <li><code>anki_connet.py</code>主要用于接收anki卡片的字段，通过AnkiConnect向电脑的anki客户端发送创建卡片的请求。</li>
 <li><code>openai_utils.py</code>用于调用大模型的api，将接收到的字幕和单词，结构化的返回其释义、语境解释等信息。</li>
 </ul>
-<p>因此，在设计这个软件时，我体验了设计prompt、修改prompt、处理大模型的结构化信息的过程。<br>以批量添加时的prompt为例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">construct_batch_prompt_jp</span>(<span class="hljs-params">self, pairs</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;构造批量查询的提示词（多对subtitle和key）&quot;&quot;&quot;</span><br>        pair_descriptions = []<br>        <span class="hljs-keyword">for</span> i, (subtitle, key) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(pairs):<br>            pair_descriptions.append(<span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">对<span class="hljs-subst">&#123;i + <span class="hljs-number">1</span>&#125;</span>:</span><br><span class="hljs-string">例句：<span class="hljs-subst">&#123;subtitle&#125;</span></span><br><span class="hljs-string">单词：<span class="hljs-subst">&#123;key&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span>)<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&quot;&quot;请根据提供的多组例句和单词，为每组返回以下结构化信息：</span><br><span class="hljs-string">1. 日文单词原型（如果是变形，返回原形）</span><br><span class="hljs-string">2. 日文的发音</span><br><span class="hljs-string">3. 单词在词典中的日文释义（不包含单词本身，必须只有日文）</span><br><span class="hljs-string">4. 对应的例句，并将单词部分用&lt;b&gt;原词&lt;/b&gt;的形式包围</span><br><span class="hljs-string">5. 用中文结合语境解释一下当前单词的意思</span><br><span class="hljs-string"></span><br><span class="hljs-string">请为每个例句-单词对返回独立的JSON对象，用数组格式返回所有结果：</span><br><span class="hljs-string">示例输入：</span><br><span class="hljs-string">对1:</span><br><span class="hljs-string">例句：連絡先 聞くの忘れたって わめいてたよ</span><br><span class="hljs-string">单词：わめいて</span><br><span class="hljs-string">对2:</span><br><span class="hljs-string">例句：胸ぺッタンコのくせに</span><br><span class="hljs-string">单词：胸</span><br><span class="hljs-string">示例格式：</span><br><span class="hljs-string">[</span><br><span class="hljs-string">    &#123;&#123;</span><br><span class="hljs-string">        &quot;单词&quot;: &quot;喚く&quot;,</span><br><span class="hljs-string">        &quot;音标&quot;: &quot;わめく&quot;,</span><br><span class="hljs-string">        &quot;意义&quot;: &quot;①大声でさけぶ。②騒ぎ立てる。&quot;</span><br><span class="hljs-string">        &quot;例句&quot;: &quot;連絡先 聞くの忘れたって　&lt;b&gt;わめいて&lt;/b&gt;たよ&quot;</span><br><span class="hljs-string">        &quot;笔记&quot;: &quot;「わめいてた」是动词「わめく」（叫嚷、吵闹）的过去进行时，表示“（当时）在大声抱怨/嚷嚷”。句中指对方因忘记询问联系方式而焦急或生气地吵闹，带有责备或夸张语气。&quot;</span><br><span class="hljs-string">    &#125;&#125;,</span><br><span class="hljs-string">    &#123;&#123;</span><br><span class="hljs-string">        &quot;单词&quot;: &quot;胸&quot;,</span><br><span class="hljs-string">        &quot;音标&quot;: &quot;むね&quot;,</span><br><span class="hljs-string">        &quot;意义&quot;: &quot;①人や動物の体の前面の一部分。乳房がある部分。②心の中。内面的な感情。&quot;,</span><br><span class="hljs-string">        &quot;例句&quot;: &quot;&lt;b&gt;胸&lt;/b&gt;ぺッタンコのくせに&quot;,</span><br><span class="hljs-string">        &quot;笔记&quot;: &quot;「胸」在这里指的是胸部，特指人体上半身的前部区域，在这个例句中具体指向平坦的胸部（即没有丰满的乳房）。语境中可能带有一些调侃或自嘲的意味，描述胸部平坦的状态。&quot;</span><br><span class="hljs-string">    &#125;&#125;</span><br><span class="hljs-string">]</span><br><span class="hljs-string"></span><br><span class="hljs-string">需要分析的例句-单词对：</span><br><span class="hljs-string"><span class="hljs-subst">&#123;<span class="hljs-string">&quot;&quot;</span>.join(pair_descriptions)&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure><br>让大模型返回结果试验，并分析这个prompt，可以总结几点经验：</p>
+<p>因此，在设计这个软件时，我体验了设计prompt、修改prompt、处理大模型的结构化信息的过程。<br>
+以批量添加时的prompt为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">construct_batch_prompt_jp</span>(<span class="hljs-params">self, pairs</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;构造批量查询的提示词（多对subtitle和key）&quot;&quot;&quot;</span><br>        pair_descriptions = []<br>        <span class="hljs-keyword">for</span> i, (subtitle, key) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(pairs):<br>            pair_descriptions.append(<span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">对<span class="hljs-subst">&#123;i + <span class="hljs-number">1</span>&#125;</span>:</span><br><span class="hljs-string">例句：<span class="hljs-subst">&#123;subtitle&#125;</span></span><br><span class="hljs-string">单词：<span class="hljs-subst">&#123;key&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span>)<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&quot;&quot;请根据提供的多组例句和单词，为每组返回以下结构化信息：</span><br><span class="hljs-string">1. 日文单词原型（如果是变形，返回原形）</span><br><span class="hljs-string">2. 日文的发音</span><br><span class="hljs-string">3. 单词在词典中的日文释义（不包含单词本身，必须只有日文）</span><br><span class="hljs-string">4. 对应的例句，并将单词部分用&lt;b&gt;原词&lt;/b&gt;的形式包围</span><br><span class="hljs-string">5. 用中文结合语境解释一下当前单词的意思</span><br><span class="hljs-string"></span><br><span class="hljs-string">请为每个例句-单词对返回独立的JSON对象，用数组格式返回所有结果：</span><br><span class="hljs-string">示例输入：</span><br><span class="hljs-string">对1:</span><br><span class="hljs-string">例句：連絡先 聞くの忘れたって わめいてたよ</span><br><span class="hljs-string">单词：わめいて</span><br><span class="hljs-string">对2:</span><br><span class="hljs-string">例句：胸ぺッタンコのくせに</span><br><span class="hljs-string">单词：胸</span><br><span class="hljs-string">示例格式：</span><br><span class="hljs-string">[</span><br><span class="hljs-string">    &#123;&#123;</span><br><span class="hljs-string">        &quot;单词&quot;: &quot;喚く&quot;,</span><br><span class="hljs-string">        &quot;音标&quot;: &quot;わめく&quot;,</span><br><span class="hljs-string">        &quot;意义&quot;: &quot;①大声でさけぶ。②騒ぎ立てる。&quot;</span><br><span class="hljs-string">        &quot;例句&quot;: &quot;連絡先 聞くの忘れたって　&lt;b&gt;わめいて&lt;/b&gt;たよ&quot;</span><br><span class="hljs-string">        &quot;笔记&quot;: &quot;「わめいてた」是动词「わめく」（叫嚷、吵闹）的过去进行时，表示“（当时）在大声抱怨/嚷嚷”。句中指对方因忘记询问联系方式而焦急或生气地吵闹，带有责备或夸张语气。&quot;</span><br><span class="hljs-string">    &#125;&#125;,</span><br><span class="hljs-string">    &#123;&#123;</span><br><span class="hljs-string">        &quot;单词&quot;: &quot;胸&quot;,</span><br><span class="hljs-string">        &quot;音标&quot;: &quot;むね&quot;,</span><br><span class="hljs-string">        &quot;意义&quot;: &quot;①人や動物の体の前面の一部分。乳房がある部分。②心の中。内面的な感情。&quot;,</span><br><span class="hljs-string">        &quot;例句&quot;: &quot;&lt;b&gt;胸&lt;/b&gt;ぺッタンコのくせに&quot;,</span><br><span class="hljs-string">        &quot;笔记&quot;: &quot;「胸」在这里指的是胸部，特指人体上半身的前部区域，在这个例句中具体指向平坦的胸部（即没有丰满的乳房）。语境中可能带有一些调侃或自嘲的意味，描述胸部平坦的状态。&quot;</span><br><span class="hljs-string">    &#125;&#125;</span><br><span class="hljs-string">]</span><br><span class="hljs-string"></span><br><span class="hljs-string">需要分析的例句-单词对：</span><br><span class="hljs-string"><span class="hljs-subst">&#123;<span class="hljs-string">&quot;&quot;</span>.join(pair_descriptions)&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+<p>让大模型返回结果试验，并分析这个prompt，可以总结几点经验：</p>
 <ol>
 <li>给出具体的步骤，让大模型一步步的执行</li>
 <li>给出具体示例</li>
 <li>注意在返回json时，不要让大模型返回双引号，因为这可能导致解析json的报错。可以在示例中使用「」提示大模型防止使用双引号。其实更彻底的做法，是让大模型返回xml格式的数据。</li>
 <li>大模型在动词的变形时经常会出现错误。或许可以在提示词里，添加一些简洁的变形规则。或者尝试调用词典中常见的获取动词原型的函数。</li>
 </ol>
-<p>​        </p>
+<p>​</p>
 
                 
               </div>
@@ -450,21 +459,6 @@
 
   
 
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
 
 
 
