@@ -27,7 +27,7 @@
 <meta property="og:description" content="随机过程复习一 概率论核心定义 随机试验 (E)：一个结果不确定的过程或实验。例如，抛硬币、掷骰子、测量产品的寿命。 样本空间 (Ω)：随机试验所有可能结果的集合。集合中的每个元素（e 或 ω）称为一个样本点。 事件 (A)：样本空间的任意一个子集。我们关心某个事件是否“发生”。 σ-代数 (F)：它是一个由样本空间的子集（即事件）构成的集类（集合的集合） 可测空间 (Ω, F)：由样本空间 Ω">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-29T07:51:17.000Z">
-<meta property="article:modified_time" content="2025-06-29T09:10:57.301Z">
+<meta property="article:modified_time" content="2025-06-29T11:00:49.598Z">
 <meta property="article:author" content="Mayegg">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -763,7 +763,7 @@
 <h4 id="四-泊松过程"><a href="#四-泊松过程" class="headerlink" title="四 泊松过程"></a>四 泊松过程</h4><h5 id="随机过程"><a href="#随机过程" class="headerlink" title="随机过程"></a>随机过程</h5><ul>
 <li>随机过程: $X = {X(t), t \in T}$ 是一族按时间 $t$ 索引的随机变量。</li>
 <li>样本路径: 随机过程的一次具体实现，是时间 $t$ 的函数。</li>
-<li>独立增量: 对任意 $t<em>0 &lt; t_1 &lt; \cdots &lt; t_n$，增量 $X(t_1)-X(t_0), X(t_2)-X(t_1), \cdots, X(t_n)-X(t</em>{n-1})$ 相互独立。</li>
+<li>独立增量: 对任意 $t_0 &lt; t_1 &lt; \cdots &lt; t_n$，增量 $X(t_1)-X(t_0), X(t_2)-X(t_1), \cdots, X(t_n)-X(t_{n-1})$ 相互独立。</li>
 <li>平稳增量: 增量 $X(t+s)-X(t)$ 的分布仅依赖于时间差 $s$，与起点 $t$ 无关。</li>
 </ul>
 <blockquote>
@@ -802,7 +802,7 @@
 </ul>
 </li>
 <li>等待时间 (Waiting Time) $S_n$:<ul>
-<li>定义：第 $n$ 个事件发生的时刻，$S<em>n = \sum</em>{i=1}^n X_i$。</li>
+<li>定义：第 $n$ 个事件发生的时刻，$S_n = \sum_{i=1}^n X_i$。</li>
 <li>分布：服从参数为 $n$ 和 $\lambda$ 的 Γ (伽玛) 分布。</li>
 </ul>
 </li>
@@ -1031,6 +1031,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -1221,6 +1227,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
