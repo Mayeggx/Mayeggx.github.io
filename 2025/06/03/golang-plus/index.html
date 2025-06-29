@@ -90,7 +90,11 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -279,7 +283,7 @@
 <li>当<code>len &gt;= cap</code>时触发扩容  </li>
 <li>扩容策略：  <ul>
 <li>原容量<code>&lt;1024</code>时，新容量直接翻倍  </li>
-<li>原容量<code>&gt;=1024</code>时，新容量按<strong>1.25倍</strong>（即5&#x2F;4）增长</li>
+<li>原容量<code>&gt;=1024</code>时，新容量按<strong>1.25倍</strong>（即5/4）增长  </li>
 </ul>
 </li>
 <li>扩容后会创建新数组，并将原数据复制到新数组</li>
@@ -298,7 +302,7 @@
 </li>
 <li><p><strong>与Java的差异</strong>  </p>
 <ul>
-<li>Java：哈希表冲突时使用链表&#x2F;红黑树（链地址法）  </li>
+<li>Java：哈希表冲突时使用链表/红黑树（链地址法）  </li>
 <li>Go：使用固定大小的数组（每个bucket 8个槽位），溢出时链接新的bucket  </li>
 <li><strong>优势</strong>：减少指针开销，提高缓存命中率</li>
 </ul>
@@ -314,7 +318,8 @@
 </ul>
 </li>
 <li><p><strong>底层结构</strong>  </p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> hchan <span class="hljs-keyword">struct</span> &#123;<br>    qcount   <span class="hljs-type">uint</span>           <span class="hljs-comment">// 缓冲区当前元素数量</span><br>    dataqsiz <span class="hljs-type">uint</span>           <span class="hljs-comment">// 缓冲区大小</span><br>    buf      unsafe.Pointer <span class="hljs-comment">// 指向缓冲区的指针</span><br>    elemsize <span class="hljs-type">uint16</span>         <span class="hljs-comment">// 元素大小</span><br>    closed   <span class="hljs-type">uint32</span>         <span class="hljs-comment">// 关闭状态</span><br>    elemtype *_type        <span class="hljs-comment">// 元素类型</span><br>    sendx    <span class="hljs-type">uint</span>           <span class="hljs-comment">// 发送索引</span><br>    recvx    <span class="hljs-type">uint</span>           <span class="hljs-comment">// 接收索引</span><br>    recvq    waitq          <span class="hljs-comment">// 接收等待队列</span><br>    sendq    waitq          <span class="hljs-comment">// 发送等待队列</span><br>    lock     mutex          <span class="hljs-comment">// 互斥锁</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> hchan <span class="hljs-keyword">struct</span> &#123;<br>    qcount   <span class="hljs-type">uint</span>           <span class="hljs-comment">// 缓冲区当前元素数量</span><br>    dataqsiz <span class="hljs-type">uint</span>           <span class="hljs-comment">// 缓冲区大小</span><br>    buf      unsafe.Pointer <span class="hljs-comment">// 指向缓冲区的指针</span><br>    elemsize <span class="hljs-type">uint16</span>         <span class="hljs-comment">// 元素大小</span><br>    closed   <span class="hljs-type">uint32</span>         <span class="hljs-comment">// 关闭状态</span><br>    elemtype *_type        <span class="hljs-comment">// 元素类型</span><br>    sendx    <span class="hljs-type">uint</span>           <span class="hljs-comment">// 发送索引</span><br>    recvx    <span class="hljs-type">uint</span>           <span class="hljs-comment">// 接收索引</span><br>    recvq    waitq          <span class="hljs-comment">// 接收等待队列</span><br>    sendq    waitq          <span class="hljs-comment">// 发送等待队列</span><br>    lock     mutex          <span class="hljs-comment">// 互斥锁</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
 </ol>
 <h4 id="四、GMP调度模型"><a href="#四、GMP调度模型" class="headerlink" title="四、GMP调度模型"></a><strong>四、GMP调度模型</strong></h4><ol>
 <li><p><strong>核心组件</strong>  </p>
@@ -414,36 +419,7 @@
 </li>
 </ol>
 <h4 id="六、关键对比与优化建议"><a href="#六、关键对比与优化建议" class="headerlink" title="六、关键对比与优化建议"></a><strong>六、关键对比与优化建议</strong></h4><ol>
-<li><p><strong>Slice vs Array</strong>  </p>
-<table>
-<thead>
-<tr>
-<th><strong>特性</strong></th>
-<th><strong>Array</strong></th>
-<th><strong>Slice</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>长度</td>
-<td>固定</td>
-<td>动态</td>
-</tr>
-<tr>
-<td>类型组成</td>
-<td>包含长度（如<code>[5]int</code>）</td>
-<td>不包含长度</td>
-</tr>
-<tr>
-<td>传递方式</td>
-<td>值传递（复制整个数组）</td>
-<td>引用传递（复制切片头）</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>已知固定长度</td>
-<td>动态长度</td>
-</tr>
-</tbody></table>
+<li><p><strong>Slice vs Array</strong><br>| <strong>特性</strong>       | <strong>Array</strong>         | <strong>Slice</strong>         |<br>|————————|—————————-|—————————-|<br>| 长度           | 固定              | 动态              |<br>| 类型组成       | 包含长度（如<code>[5]int</code>） | 不包含长度         |<br>| 传递方式       | 值传递（复制整个数组） | 引用传递（复制切片头） |<br>| 适用场景       | 已知固定长度      | 动态长度          |</p>
 </li>
 <li><p><strong>Map优化建议</strong>  </p>
 <ul>
@@ -454,7 +430,7 @@
 </li>
 <li><p><strong>并发优化建议</strong>  </p>
 <ul>
-<li>控制<code>GOMAXPROCS</code>：CPU密集型建议设为<code>runtime.NumCPU()</code>，I&#x2F;O密集型可适当增大  </li>
+<li>控制<code>GOMAXPROCS</code>：CPU密集型建议设为<code>runtime.NumCPU()</code>，I/O密集型可适当增大  </li>
 <li>减少锁竞争：优先使用无锁数据结构（如<code>sync.Map</code>）或原子操作  </li>
 <li>合理使用缓冲通道：避免无缓冲通道导致的频繁阻塞和唤醒</li>
 </ul>

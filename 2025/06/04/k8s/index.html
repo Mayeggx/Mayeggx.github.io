@@ -90,7 +90,11 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -329,11 +333,7 @@
 <li><strong>KillerCoda</strong>：在线交互式 K8s 环境。</li>
 </ul>
 <h4 id="四、常用命令"><a href="#四、常用命令" class="headerlink" title="四、常用命令"></a><strong>四、常用命令</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 资源查看</span><br>kubectl get nodes/svc/pod<br><br><span class="hljs-comment"># 创建资源</span><br>kubectl run nginx --image=nginx<br>kubectl create deployment nginx --image=nginx<br><br><span class="hljs-comment"># 管理资源</span><br>kubectl edit deployment nginx  <span class="hljs-comment"># 修改副本数</span><br>kubectl logs pod-name          <span class="hljs-comment"># 查看日志</span><br>kubectl <span class="hljs-built_in">exec</span> -it pod-name -- /bin/bash  <span class="hljs-comment"># 进入容器</span><br><br><span class="hljs-comment"># 配置文件操作</span><br>kubectl create/apply/delete -f xxx.yaml<br></code></pre></td></tr></table></figure>
-
-
 <h4 id="五、YAML-配置文件"><a href="#五、YAML-配置文件" class="headerlink" title="五、YAML 配置文件"></a><strong>五、YAML 配置文件</strong></h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>       <span class="hljs-comment"># API 版本</span><br><span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>          <span class="hljs-comment"># 资源类型</span><br><span class="hljs-attr">metadata:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">nginx-deployment</span>  <span class="hljs-comment"># 名称</span><br><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>             <span class="hljs-comment"># 副本数</span><br>  <span class="hljs-attr">selector:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># 选择器</span><br>  <span class="hljs-attr">template:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># Pod 模板</span><br></code></pre></td></tr></table></figure>
-
-
 <h4 id="六、外部服务配置"><a href="#六、外部服务配置" class="headerlink" title="六、外部服务配置"></a><strong>六、外部服务配置</strong></h4><ul>
 <li><strong>Service 配置</strong>：  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">selector:</span>             <span class="hljs-comment"># 关联 Pod</span><br>  <span class="hljs-attr">ports:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">port:</span> <span class="hljs-number">80</span>          <span class="hljs-comment"># 对外端口</span><br>      <span class="hljs-attr">targetPort:</span> <span class="hljs-number">8080</span>  <span class="hljs-comment"># 容器端口</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">NodePort</span>        <span class="hljs-comment"># 服务类型</span><br></code></pre></td></tr></table></figure></li>
 <li><strong>命名空间操作</strong>：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl get ns          <span class="hljs-comment"># 查看命名空间</span><br></code></pre></td></tr></table></figure></li>
