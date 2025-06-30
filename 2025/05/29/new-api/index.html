@@ -19,12 +19,12 @@
   <meta name="author" content="Mayegg">
   <meta name="keywords" content="">
   
-    <meta name="description" content="new-api 项目架构分析总架构 main.go 加载环境变量和配置文件。 初始化数据库，主数据库、日志数据库、SR数据库 初始化redis 设置环境相关常量，初始化工作流、选项映射和内存缓存，启动后台应用 启用性能监控，初始化服务组件InitTokenEncoders 启动http服务器   web-router.go gzip：使用 Gzip 压缩中间件，对 HTTP 响应进行压缩，提升传输">
+    <meta name="description" content="new-api 项目架构分析 总架构  main.go  加载环境变量和配置文件。 初始化数据库，主数据库、日志数据库、SR数据库 初始化redis 设置环境相关常量，初始化工作流、选项映射和内存缓存，启动后台应用 启用性能监控，初始化服务组件InitTokenEncoders 启动http服务器   web-router.go  gzip：使用 Gzip 压缩中间件，对 HTTP 响应进行压缩，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="new-api项目解析">
 <meta property="og:url" content="http://example.com/2025/05/29/new-api/index.html">
 <meta property="og:site_name" content="Mayegg&#39;s Blog">
-<meta property="og:description" content="new-api 项目架构分析总架构 main.go 加载环境变量和配置文件。 初始化数据库，主数据库、日志数据库、SR数据库 初始化redis 设置环境相关常量，初始化工作流、选项映射和内存缓存，启动后台应用 启用性能监控，初始化服务组件InitTokenEncoders 启动http服务器   web-router.go gzip：使用 Gzip 压缩中间件，对 HTTP 响应进行压缩，提升传输">
+<meta property="og:description" content="new-api 项目架构分析 总架构  main.go  加载环境变量和配置文件。 初始化数据库，主数据库、日志数据库、SR数据库 初始化redis 设置环境相关常量，初始化工作流、选项映射和内存缓存，启动后台应用 启用性能监控，初始化服务组件InitTokenEncoders 启动http服务器   web-router.go  gzip：使用 Gzip 压缩中间件，对 HTTP 响应进行压缩，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-29T14:18:23.000Z">
 <meta property="article:modified_time" content="2025-06-06T15:58:05.854Z">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          834 words
+          837 words
         
       </span>
     
@@ -270,8 +270,11 @@
             
               <div class="markdown-body">
                 
-                <h1 id="new-api-项目架构分析"><a href="#new-api-项目架构分析" class="headerlink" title="new-api 项目架构分析"></a>new-api 项目架构分析</h1><h3 id="总架构"><a href="#总架构" class="headerlink" title="总架构"></a>总架构</h3><ul>
-<li>main.go<ul>
+                <h1>new-api 项目架构分析</h1>
+<h3 id="总架构">总架构</h3>
+<ul>
+<li>main.go
+<ul>
 <li>加载环境变量和配置文件。</li>
 <li>初始化数据库，主数据库、日志数据库、SR数据库</li>
 <li>初始化redis</li>
@@ -280,7 +283,8 @@
 <li>启动http服务器</li>
 </ul>
 </li>
-<li>web-router.go<ul>
+<li>web-router.go
+<ul>
 <li>gzip：使用 Gzip 压缩中间件，对 HTTP 响应进行压缩，提升传输效率。</li>
 <li>GlobalWebRateLimit：全局速率限制中间件，用于限制 Web 请求的频率，防止滥用。</li>
 <li>Cache：缓存中间件，用于优化性能。</li>
@@ -290,16 +294,18 @@
 </li>
 </ul>
 <hr>
-<h3 id="custom"><a href="#custom" class="headerlink" title="custom"></a>custom</h3><h5 id="费用计算"><a href="#费用计算" class="headerlink" title="费用计算"></a>费用计算</h5><p><code>calculate/cost</code> -&gt;  <code>CalculateCost</code></p>
+<h3 id="custom">custom</h3>
+<h5 id="费用计算">费用计算</h5>
+<p><code>calculate/cost</code> -&gt;  <code>CalculateCost</code></p>
 <ul>
-<li>流程<ol>
-<li></li>
-</ol>
-</li>
+<li>流程<br>
+1.</li>
 </ul>
-<h5 id="获取费用"><a href="#获取费用" class="headerlink" title="获取费用"></a>获取费用</h5><p><code>cost</code> -&gt;  <code>GetCost</code> 传入data</p>
+<h5 id="获取费用">获取费用</h5>
+<p><code>cost</code> -&gt;  <code>GetCost</code> 传入data</p>
 <ul>
-<li>流程<ol>
+<li>流程
+<ol>
 <li>获取日期，如果没有日期设置为前一天</li>
 <li>删除该日期已存在的成本记录</li>
 <li></li>
@@ -307,9 +313,12 @@
 </li>
 </ul>
 <hr>
-<h3 id="openapi"><a href="#openapi" class="headerlink" title="openapi"></a>openapi</h3><h5 id="创建令牌"><a href="#创建令牌" class="headerlink" title="创建令牌"></a>创建令牌</h5><p><code>token</code> -&gt; <code>OpenApiAddToken</code></p>
+<h3 id="openapi">openapi</h3>
+<h5 id="创建令牌">创建令牌</h5>
+<p><code>token</code> -&gt; <code>OpenApiAddToken</code></p>
 <ul>
-<li><p>流程</p>
+<li>
+<p>流程</p>
 <ol>
 <li>声明<code>token</code>，使用ShouldBindJSON将请求体绑定到<code>token</code>结构体。json中传入的字段包括name、work_id、space_id。</li>
 <li>调用<code>common.GenerateKey()</code>生成一个唯一的密钥key(这个函数进行len次循环，每次从<code>keyChars</code>中随机取出一个字母)</li>
@@ -317,18 +326,21 @@
 <li><code>uniconfig.GetConfigValue(uniconfig.DefaultEnabledModelKey)</code>获取默认的模型列表</li>
 <li>构建完整的token对象<code>cleanToken</code>，传入上述步骤中获取的字段，设置时间戳、分组、配额等。</li>
 <li>调用<code>cleanToken.Insert()</code>将token保存到数据库。</li>
-<li>成功返回<code>&quot;message&quot;: &quot;sk-&quot; + cleanToken.Key</code>添加”sk-“前缀的完整Token。</li>
+<li>成功返回<code>&quot;message&quot;: &quot;sk-&quot; + cleanToken.Key</code>添加&quot;sk-&quot;前缀的完整Token。</li>
 </ol>
 </li>
-<li><p>tips</p>
+<li>
+<p>tips</p>
 <ul>
 <li><code>ShouldBindJSON</code>：将请求体绑定到结构体，自动处理JSON解析和验证。</li>
 </ul>
 </li>
 </ul>
-<h5 id="工单回调-通过工作流系统创建api令牌"><a href="#工单回调-通过工作流系统创建api令牌" class="headerlink" title="工单回调-通过工作流系统创建api令牌"></a>工单回调-通过工作流系统创建api令牌</h5><p><code>wf/key</code> -&gt; <code>OpenApiAddTokenByWorkflow</code></p>
+<h5 id="工单回调-通过工作流系统创建api令牌">工单回调-通过工作流系统创建api令牌</h5>
+<p><code>wf/key</code> -&gt; <code>OpenApiAddTokenByWorkflow</code></p>
 <ul>
-<li>流程<ol>
+<li>流程
+<ol>
 <li>读取原始的请求体到 <code>requestBody</code>，并重新设置请求体保证可以重复读取。</li>
 <li>定义<code>workflowRequest</code>的数据结构，并将请求映射到结构体。请求中有绝大部分的字段，但是没有<code>KeyType 、Uk 、Privac、BusinessScenario</code></li>
 <li>生成key</li>
@@ -340,9 +352,11 @@
 </ol>
 </li>
 </ul>
-<h5 id="追加默认模型"><a href="#追加默认模型" class="headerlink" title="追加默认模型"></a>追加默认模型</h5><p><code>update/default/models</code> -&gt; <code>UpdateTokenModelLimits</code></p>
+<h5 id="追加默认模型">追加默认模型</h5>
+<p><code>update/default/models</code> -&gt; <code>UpdateTokenModelLimits</code></p>
 <ul>
-<li><p>流程</p>
+<li>
+<p>流程</p>
 <ol>
 <li>获取默认的模型列表<code>uniconfig.GetConfigValue(uniconfig.DefaultEnabledModelKey)</code></li>
 <li>查询所有的Token记录<code>model.DB.Find(&amp;tokens)</code></li>
@@ -354,7 +368,8 @@
 <li>使用select显式的指定需要更新的字段，再使用update更新<code>model_limits</code>字段。异步开启协程更新缓存。</li>
 </ol>
 </li>
-<li><p>tips</p>
+<li>
+<p>tips</p>
 <ul>
 <li><code>for key := range mapName</code>仅仅表示按键遍历map，而忽略value</li>
 <li><code>DB.Model(token)</code>指定操作的数据库表（通过 Go 结构体映射）</li>
