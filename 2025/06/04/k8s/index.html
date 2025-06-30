@@ -19,12 +19,12 @@
   <meta name="author" content="Mayegg">
   <meta name="keywords" content="">
   
-    <meta name="description" content="K8S框架的学习 Kubernetes 核心知识点总结 一、基本组件   容器编排引擎  自动化部署、扩展和管理容器化应用。    Node（节点）  物理机或虚拟机，运行 Pod。    Pod  最小部署单元，可包含多个容器，IP 动态变化。    Service  为 Pod 提供固定访问入口，类型包括：  内部服务：ClusterIP（集群内访问）。 外部服务：NodePort（节点端口转">
+    <meta name="description" content="K8S框架的学习Kubernetes 核心知识点总结一、基本组件 容器编排引擎    自动化部署、扩展和管理容器化应用。   Node（节点）    物理机或虚拟机，运行 Pod。   Pod    最小部署单元，可包含多个容器，IP 动态变化。   Service    为 Pod 提供固定访问入口，类型包括：   内部服务：ClusterIP（集群内访问）。   外部服务：NodePort（节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="K8S框架的学习">
 <meta property="og:url" content="http://example.com/2025/06/04/k8s/index.html">
 <meta property="og:site_name" content="Mayegg&#39;s Blog">
-<meta property="og:description" content="K8S框架的学习 Kubernetes 核心知识点总结 一、基本组件   容器编排引擎  自动化部署、扩展和管理容器化应用。    Node（节点）  物理机或虚拟机，运行 Pod。    Pod  最小部署单元，可包含多个容器，IP 动态变化。    Service  为 Pod 提供固定访问入口，类型包括：  内部服务：ClusterIP（集群内访问）。 外部服务：NodePort（节点端口转">
+<meta property="og:description" content="K8S框架的学习Kubernetes 核心知识点总结一、基本组件 容器编排引擎    自动化部署、扩展和管理容器化应用。   Node（节点）    物理机或虚拟机，运行 Pod。   Pod    最小部署单元，可包含多个容器，IP 动态变化。   Service    为 Pod 提供固定访问入口，类型包括：   内部服务：ClusterIP（集群内访问）。   外部服务：NodePort（节">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-04T15:42:32.000Z">
 <meta property="article:modified_time" content="2025-06-04T16:04:05.085Z">
@@ -270,93 +270,74 @@
             
               <div class="markdown-body">
                 
-                <h1>K8S框架的学习</h1>
-<h3 id="Kubernetes-核心知识点总结"><strong>Kubernetes 核心知识点总结</strong></h3>
-<h4 id="一、基本组件"><strong>一、基本组件</strong></h4>
-<ol>
-<li>
-<p><strong>容器编排引擎</strong></p>
+                <h1 id="K8S框架的学习"><a href="#K8S框架的学习" class="headerlink" title="K8S框架的学习"></a>K8S框架的学习</h1><h3 id="Kubernetes-核心知识点总结"><a href="#Kubernetes-核心知识点总结" class="headerlink" title="Kubernetes 核心知识点总结"></a><strong>Kubernetes 核心知识点总结</strong></h3><h4 id="一、基本组件"><a href="#一、基本组件" class="headerlink" title="一、基本组件"></a><strong>一、基本组件</strong></h4><ol>
+<li><p><strong>容器编排引擎</strong>  </p>
 <ul>
 <li>自动化部署、扩展和管理容器化应用。</li>
 </ul>
 </li>
-<li>
-<p><strong>Node（节点）</strong></p>
+<li><p><strong>Node（节点）</strong>  </p>
 <ul>
 <li>物理机或虚拟机，运行 Pod。</li>
 </ul>
 </li>
-<li>
-<p><strong>Pod</strong></p>
+<li><p><strong>Pod</strong>  </p>
 <ul>
 <li>最小部署单元，可包含多个容器，IP 动态变化。</li>
 </ul>
 </li>
-<li>
-<p><strong>Service</strong></p>
+<li><p><strong>Service</strong>  </p>
 <ul>
-<li>为 Pod 提供固定访问入口，类型包括：
-<ul>
-<li><strong>内部服务</strong>：ClusterIP（集群内访问）。</li>
+<li>为 Pod 提供固定访问入口，类型包括：  <ul>
+<li><strong>内部服务</strong>：ClusterIP（集群内访问）。  </li>
 <li><strong>外部服务</strong>：NodePort（节点端口转发）、LoadBalancer（云负载均衡）、Ingress（统一入口，支持证书和负载均衡）。</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p><strong>配置与存储</strong></p>
+<li><p><strong>配置与存储</strong>  </p>
 <ul>
-<li><strong>ConfigMap</strong>：存储非敏感配置，解耦应用与配置。</li>
-<li><strong>Secret</strong>：存储敏感信息（Base64 编码）。</li>
+<li><strong>ConfigMap</strong>：存储非敏感配置，解耦应用与配置。  </li>
+<li><strong>Secret</strong>：存储敏感信息（Base64 编码）。  </li>
 <li><strong>Volume</strong>：实现容器数据持久化。</li>
 </ul>
 </li>
-<li>
-<p><strong>控制器</strong></p>
+<li><p><strong>控制器</strong>  </p>
 <ul>
-<li><strong>Deployment</strong>：无状态应用管理，支持副本控制、滚动更新、自动恢复。</li>
+<li><strong>Deployment</strong>：无状态应用管理，支持副本控制、滚动更新、自动恢复。  </li>
 <li><strong>StatefulSet</strong>：有状态应用管理（如数据库），保留状态信息。</li>
 </ul>
 </li>
 </ol>
-<h4 id="二、Node-结构"><strong>二、Node 结构</strong></h4>
-<ol>
-<li>
-<p><strong>Worker Node</strong></p>
+<h4 id="二、Node-结构"><a href="#二、Node-结构" class="headerlink" title="二、Node 结构"></a><strong>二、Node 结构</strong></h4><ol>
+<li><p><strong>Worker Node</strong>  </p>
 <ul>
-<li><strong>Container Runtime</strong>：拉取镜像并运行容器（如 Docker）。</li>
-<li><strong>Kubelet</strong>：管理节点上的 Pod。</li>
+<li><strong>Container Runtime</strong>：拉取镜像并运行容器（如 Docker）。  </li>
+<li><strong>Kubelet</strong>：管理节点上的 Pod。  </li>
 <li><strong>Kube-Proxy</strong>：实现网络代理和负载均衡。</li>
 </ul>
 </li>
-<li>
-<p><strong>Master Node</strong></p>
+<li><p><strong>Master Node</strong>  </p>
 <ul>
-<li><strong>API Server</strong>：集群统一入口，处理资源操作。</li>
-<li><strong>Scheduler</strong>：调度 Pod 到合适节点。</li>
-<li><strong>Controller Manager</strong>：维护资源状态。</li>
-<li><strong>etcd</strong>：存储集群状态数据。</li>
+<li><strong>API Server</strong>：集群统一入口，处理资源操作。  </li>
+<li><strong>Scheduler</strong>：调度 Pod 到合适节点。  </li>
+<li><strong>Controller Manager</strong>：维护资源状态。  </li>
+<li><strong>etcd</strong>：存储集群状态数据。  </li>
 <li><strong>Cloud Controller Manager</strong>：与云平台 API 交互。</li>
 </ul>
 </li>
 </ol>
-<h4 id="三、环境搭建"><strong>三、环境搭建</strong></h4>
-<ul>
-<li><strong>Minikube</strong>：单节点本地环境，通过 <code>kubectl</code> 交互。</li>
-<li><strong>Multipass + k3s</strong>：轻量级多节点集群。</li>
+<h4 id="三、环境搭建"><a href="#三、环境搭建" class="headerlink" title="三、环境搭建"></a><strong>三、环境搭建</strong></h4><ul>
+<li><strong>Minikube</strong>：单节点本地环境，通过 <code>kubectl</code> 交互。  </li>
+<li><strong>Multipass + k3s</strong>：轻量级多节点集群。  </li>
 <li><strong>KillerCoda</strong>：在线交互式 K8s 环境。</li>
 </ul>
-<h4 id="四、常用命令"><strong>四、常用命令</strong></h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 资源查看</span><br>kubectl get nodes/svc/pod<br><br><span class="hljs-comment"># 创建资源</span><br>kubectl run nginx --image=nginx<br>kubectl create deployment nginx --image=nginx<br><br><span class="hljs-comment"># 管理资源</span><br>kubectl edit deployment nginx  <span class="hljs-comment"># 修改副本数</span><br>kubectl logs pod-name          <span class="hljs-comment"># 查看日志</span><br>kubectl <span class="hljs-built_in">exec</span> -it pod-name -- /bin/bash  <span class="hljs-comment"># 进入容器</span><br><br><span class="hljs-comment"># 配置文件操作</span><br>kubectl create/apply/delete -f xxx.yaml<br></code></pre></td></tr></table></figure>
-<h4 id="五、YAML-配置文件"><strong>五、YAML 配置文件</strong></h4>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>       <span class="hljs-comment"># API 版本</span><br><span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>          <span class="hljs-comment"># 资源类型</span><br><span class="hljs-attr">metadata:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">nginx-deployment</span>  <span class="hljs-comment"># 名称</span><br><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>             <span class="hljs-comment"># 副本数</span><br>  <span class="hljs-attr">selector:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># 选择器</span><br>  <span class="hljs-attr">template:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># Pod 模板</span><br></code></pre></td></tr></table></figure>
-<h4 id="六、外部服务配置"><strong>六、外部服务配置</strong></h4>
-<ul>
-<li><strong>Service 配置</strong>：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">selector:</span>             <span class="hljs-comment"># 关联 Pod</span><br>  <span class="hljs-attr">ports:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">port:</span> <span class="hljs-number">80</span>          <span class="hljs-comment"># 对外端口</span><br>      <span class="hljs-attr">targetPort:</span> <span class="hljs-number">8080</span>  <span class="hljs-comment"># 容器端口</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">NodePort</span>        <span class="hljs-comment"># 服务类型</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><strong>命名空间操作</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl get ns          <span class="hljs-comment"># 查看命名空间</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><strong>图形界面部署</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl apply -f portainer.yaml  <span class="hljs-comment"># 部署 Portainer</span><br></code></pre></td></tr></table></figure></li>
+<h4 id="四、常用命令"><a href="#四、常用命令" class="headerlink" title="四、常用命令"></a><strong>四、常用命令</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 资源查看</span><br>kubectl get nodes/svc/pod<br><br><span class="hljs-comment"># 创建资源</span><br>kubectl run nginx --image=nginx<br>kubectl create deployment nginx --image=nginx<br><br><span class="hljs-comment"># 管理资源</span><br>kubectl edit deployment nginx  <span class="hljs-comment"># 修改副本数</span><br>kubectl logs pod-name          <span class="hljs-comment"># 查看日志</span><br>kubectl <span class="hljs-built_in">exec</span> -it pod-name -- /bin/bash  <span class="hljs-comment"># 进入容器</span><br><br><span class="hljs-comment"># 配置文件操作</span><br>kubectl create/apply/delete -f xxx.yaml<br></code></pre></td></tr></table></figure>
+<h4 id="五、YAML-配置文件"><a href="#五、YAML-配置文件" class="headerlink" title="五、YAML 配置文件"></a><strong>五、YAML 配置文件</strong></h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>       <span class="hljs-comment"># API 版本</span><br><span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>          <span class="hljs-comment"># 资源类型</span><br><span class="hljs-attr">metadata:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">nginx-deployment</span>  <span class="hljs-comment"># 名称</span><br><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>             <span class="hljs-comment"># 副本数</span><br>  <span class="hljs-attr">selector:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># 选择器</span><br>  <span class="hljs-attr">template:</span> <span class="hljs-string">...</span>           <span class="hljs-comment"># Pod 模板</span><br></code></pre></td></tr></table></figure>
+<h4 id="六、外部服务配置"><a href="#六、外部服务配置" class="headerlink" title="六、外部服务配置"></a><strong>六、外部服务配置</strong></h4><ul>
+<li><strong>Service 配置</strong>：  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spec:</span><br>  <span class="hljs-attr">selector:</span>             <span class="hljs-comment"># 关联 Pod</span><br>  <span class="hljs-attr">ports:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">port:</span> <span class="hljs-number">80</span>          <span class="hljs-comment"># 对外端口</span><br>      <span class="hljs-attr">targetPort:</span> <span class="hljs-number">8080</span>  <span class="hljs-comment"># 容器端口</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">NodePort</span>        <span class="hljs-comment"># 服务类型</span><br></code></pre></td></tr></table></figure></li>
+<li><strong>命名空间操作</strong>：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl get ns          <span class="hljs-comment"># 查看命名空间</span><br></code></pre></td></tr></table></figure></li>
+<li><strong>图形界面部署</strong>：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl apply -f portainer.yaml  <span class="hljs-comment"># 部署 Portainer</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 
                 
