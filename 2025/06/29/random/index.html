@@ -27,7 +27,7 @@
 <meta property="og:description" content="概率论和泊松过程 一 概率论 核心定义  随机试验 (E)：一个结果不确定的过程或实验。例如，抛硬币、掷骰子、测量产品的寿命。 样本空间 (Ω)：随机试验所有可能结果的集合。集合中的每个元素（e 或 ω）称为一个样本点。 事件 (A)：样本空间的任意一个子集。我们关心某个事件是否“发生”。 σ-代数 (F)：它是一个由样本空间的子集（即事件）构成的集类（集合的集合） 可测空间 (Ω, F)：由样本">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-29T07:51:17.000Z">
-<meta property="article:modified_time" content="2025-06-29T12:58:43.448Z">
+<meta property="article:modified_time" content="2025-06-30T09:11:01.070Z">
 <meta property="article:author" content="Mayegg">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.6k words
+          8.8k words
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          80 mins
+          74 mins
         
       </span>
     
@@ -818,39 +818,7 @@
 </blockquote>
 <h4 id="三-随机变量的函数">三 随机变量的函数</h4>
 <h5 id="单个随机变量的函数">单个随机变量的函数</h5>
-<ul>
-<li>背景：当我们对一个随机变量 <code>X</code> 进行运算（如 <code>Y = X²</code> 或 <code>Y = 2X + 1</code>），得到的新变量 <code>Y</code> 也是一个随机变量。那么，如何从已知的 <code>X</code> 的分布推导出 <code>Y</code> 的分布呢</li>
-<li>思路：无论函数 <code>g(X)</code> 多复杂，都可以从 <code>Y</code> 的累积分布函数 (CDF) <code>F_Y(y)</code> 入手。</li>
-<li>步骤：
-<ol>
-<li>写出 <code>Y</code> 的CDF定义：<code>F_Y(y) = P(Y ≤ y)</code>。</li>
-<li>将 <code>Y = g(X)</code> 代入：<code>P(g(X) ≤ y)</code>。</li>
-<li>解出不等式 <code>g(X) ≤ y</code> 中 <code>X</code> 的范围。</li>
-<li>在求出的 <code>X</code> 的范围上对 <code>X</code> 的密度函数 <code>f_X(x)</code> 进行积分，得到 <code>F_Y(y)</code>。</li>
-<li>对 <code>F_Y(y)</code> 求导，得到 <code>Y</code> 的密度函数 <code>f_Y(y) = d/dy F_Y(y)</code>。</li>
-</ol>
-</li>
-<li>特殊情况
-<ul>
-<li>线性函数：<code>f_Y(y) = (1/|a|)  f_X((y-b)/a)</code></li>
-<li>严格单调函数：<code>f_Y(y) = f_X(h(y))  |dh/dy|</code></li>
-</ul>
-</li>
-</ul>
 <h5 id="两个随机变量的函数">两个随机变量的函数</h5>
-<ul>
-<li>离散情况：<code>p_Z(z) = Σ_x p_X(x)  p_Y(z-x)</code></li>
-<li>连续情况：<code>f_Z(z) = ∫[-∞ to ∞] f_X(x)  f_Y(z-x) dx</code></li>
-<li>💡 形象解释：滑动叠加
-<ul>
-<li>想象 <code>f_X(x)</code> 是一个固定的山丘。</li>
-<li>把 <code>f_Y(y)</code> 的图像水平翻转，变成 <code>f_Y(-y)</code>，得到另一个山丘。</li>
-<li>将翻转后的山丘沿着x轴平移 <code>z</code> 个单位，得到 <code>f_Y(z-x)</code>。</li>
-<li>在每个平移位置 <code>z</code>，计算两个山丘重叠部分下方的面积（即两个函数乘积的积分）。这个面积就是 <code>Z=z</code> 时的概率密度。</li>
-<li>这个“翻转、平移、算重叠面积”的过程，就是卷积。</li>
-</ul>
-</li>
-</ul>
 <h5 id="协方差与相关性">协方差与相关性</h5>
 <h6 id="协方差">协方差</h6>
 <ul>
@@ -1013,12 +981,6 @@
 </ul>
 <p>答案：从现在开始，期望需要等待约 1.67分钟 (即1分40秒) 才能收到第5个请求。</p>
 </blockquote>
-<h5 id="拓展类型">拓展类型</h5>
-<ul>
-<li>非齐合泊松过程: 事件发生率 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\lambda(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span> 是时间的函数。一个城市高速公路收费站。在早上7-9点的通勤高峰期，车辆到达的速率 <code>λ(t)</code> 非常高；而在凌晨2-4点，速率 <code>λ(t)</code> 则非常低。这里的事件发生率不再是一个常数，而是随时间 <code>t</code> 变化的函数。</li>
-<li>复合泊松过程: 每次事件发生时，伴随一个随机大小的量。形式为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msubsup><msub><mi>Y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">X(t) = \sum_{i=1}^{N(t)} Y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3276em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0279em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。一家保险公司。理赔申请的到达（事件发生）可以看作一个泊松过程。但每次理赔的金额 <code>Y_i</code> 是一个随机变量（有的赔1千，有的赔10万）。到 <code>t</code> 时刻为止，公司总的理赔金额 <code>X(t)</code> 就是一个复合泊松过程。它是由“来了多少个”和“每个多大”两个随机因素共同决定的。</li>
-<li>条件泊松过程: 事件发生率 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span> 本身是一个随机变量。一个网站服务器收到的请求。我们知道服务器有两种状态：“正常日”和“促销日”。我们事先不知道今天是“正常日”还是“促销日”（比如，促销活动是随机触发的）。这里的发生率 <code>λ</code> 本身就是一个随机变量，它可能等于10，也可能等于500。这就是条件泊松过程。</li>
-</ul>
 
                 
               </div>
@@ -1076,7 +1038,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>June 29, 2025</div>
+          <div>June 30, 2025</div>
         </div>
       
       
