@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "content": "node scripts/build-content.mjs",
-    "prebuild": "npm run content",
+    "music": "node scripts/build-music.mjs",
+    "prebuild": "npm run content && npm run music",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",

@@ -1,17 +1,133 @@
 {
-  "updatedAt": "2026-08-04",
+  "updatedAt": "2026-08-03",
   "songs": [
-    { "id": "idol", "title": "アイドル", "artist": "YOASOBI", "category": "J-Pop", "practiceStatus": "熟练掌握", "addedAt": "2026-08-02", "color": "violet", "note": "副歌的咬字和气口已经很顺。", "youtubeId": "ZRtdQ81jPUQ" },
-    { "id": "show", "title": "唱", "artist": "Ado", "category": "Anisong", "practiceStatus": "正在练习", "addedAt": "2026-08-01", "color": "orange", "note": "先把主歌节奏压稳，再碰高音。", "youtubeId": "pgXpM4l_MwI" },
-    { "id": "mesmerizer", "title": "メズマライザー", "artist": "サツキ feat. 初音ミク・重音テト", "category": "术力口", "practiceStatus": "准备练习", "addedAt": "2026-07-30", "color": "mint", "note": "旋律很上头，想拆开练每一段。", "youtubeId": "19y8YTbvri8" },
-    { "id": "start-true-dreams", "title": "START!! True dreams", "artist": "Liella!", "category": "二偶", "practiceStatus": "曾经熟悉", "addedAt": "2026-07-28", "color": "sky", "note": "希望有空重新捡起来。", "searchUrl": "https://www.youtube.com/results?search_query=Liella+START%21%21+True+dreams" },
-    { "id": "kaibutsu", "title": "怪物", "artist": "YOASOBI", "category": "Anisong", "practiceStatus": "正在练习", "addedAt": "2026-07-26", "color": "rose", "note": "难点是转音要保留一点锋利感。", "searchUrl": "https://www.youtube.com/results?search_query=YOASOBI+Kaibutsu+Official+Music+Video" },
-    { "id": "melt", "title": "メルト", "artist": "supercell feat. 初音ミク", "category": "术力口", "practiceStatus": "熟练掌握", "addedAt": "2026-07-21", "color": "yellow", "note": "总是很适合作为热嗓歌。", "searchUrl": "https://www.youtube.com/results?search_query=supercell+Melt+Hatsune+Miku" },
-    { "id": "sing-shine-smile", "title": "Sing! Shine! Smile!", "artist": "Liella!", "category": "二偶", "practiceStatus": "准备练习", "addedAt": "2026-07-18", "color": "blue", "note": "想学会后和朋友一起合唱。", "searchUrl": "https://www.youtube.com/results?search_query=Liella+Sing+Shine+Smile" }
+    {
+      "id": "アイドル-2034742057",
+      "title": "アイドル",
+      "artist": "YOASOBI",
+      "category": "J-Pop",
+      "practiceStatus": "熟练掌握",
+      "addedAt": "2026-08-02",
+      "color": "violet",
+      "note": "副歌的咬字和气口已经很顺。",
+      "album": "アイドル",
+      "releaseDate": "2023-04-11",
+      "coverUrl": "https://p3.music.126.net/mLJ_pKshFVtboLyD-4nBdA==/109951168573694568.jpg",
+      "neteaseId": 2034742057,
+      "neteaseUrl": "https://music.163.com/#/song?id=2034742057"
+    },
+    {
+      "id": "唱-2079797137",
+      "title": "唱",
+      "artist": "Ado",
+      "category": "Anisong",
+      "practiceStatus": "正在练习",
+      "addedAt": "2026-08-01",
+      "color": "orange",
+      "note": "先把主歌节奏压稳，再碰高音。",
+      "album": "唱",
+      "releaseDate": "2023-09-05",
+      "coverUrl": "https://p3.music.126.net/BXxaxWC_5vVh7iCuLGw1Pw==/109951168896160186.jpg",
+      "neteaseId": 2079797137,
+      "neteaseUrl": "https://music.163.com/#/song?id=2079797137"
+    },
+    {
+      "id": "怪物-1893590233",
+      "title": "怪物",
+      "artist": "YOASOBI",
+      "category": "Anisong",
+      "practiceStatus": "正在练习",
+      "addedAt": "2026-07-26",
+      "color": "mint",
+      "note": "难点是转音要保留一点锋利感。",
+      "album": "THE BOOK 2",
+      "releaseDate": "2021-11-30",
+      "coverUrl": "https://p4.music.126.net/Nwwpjbdyj6qM66WGwKBM_Q==/109951166603574539.jpg",
+      "neteaseId": 1893590233,
+      "neteaseUrl": "https://music.163.com/#/song?id=1893590233"
+    },
+    {
+      "id": "メズマライザー-2153390036",
+      "title": "メズマライザー (feat. 初音ミク&重音テト)",
+      "artist": "サツキ / 初音ミク / 重音テト",
+      "category": "术力口",
+      "practiceStatus": "准备练习",
+      "addedAt": "2026-07-30",
+      "color": "sky",
+      "note": "旋律很上头，想拆开练每一段。",
+      "album": "メズマライザー",
+      "releaseDate": "2024-05-16",
+      "coverUrl": "https://p3.music.126.net/D6OAAd5ht4AQ1GbuTTfsLA==/109951169568777751.jpg",
+      "neteaseId": 2153390036,
+      "neteaseUrl": "https://music.163.com/#/song?id=2153390036"
+    },
+    {
+      "id": "メルト-22709629",
+      "title": "ライン",
+      "artist": "supercell",
+      "category": "术力口",
+      "practiceStatus": "熟练掌握",
+      "addedAt": "2026-07-21",
+      "color": "rose",
+      "note": "总是很适合作为热嗓歌。",
+      "album": "Supercell",
+      "releaseDate": "2009-03-03",
+      "coverUrl": "https://p3.music.126.net/DiKZO3MM-MMsYhUBR3rS3Q==/805942023183935.jpg",
+      "neteaseId": 22709629,
+      "neteaseUrl": "https://music.163.com/#/song?id=22709629"
+    },
+    {
+      "id": "start-true-dreams-1862821963",
+      "title": "START!! True dreams",
+      "artist": "Liella!",
+      "category": "二偶",
+      "practiceStatus": "曾经熟悉",
+      "addedAt": "2026-07-28",
+      "color": "yellow",
+      "note": "希望有空重新捡起来。",
+      "album": "START!! True dreams",
+      "releaseDate": "2021-07-20",
+      "coverUrl": "https://p4.music.126.net/WrQtnSvzu-6ei4n5QSDG6w==/109951168958537296.jpg",
+      "neteaseId": 1862821963,
+      "neteaseUrl": "https://music.163.com/#/song?id=1862821963"
+    },
+    {
+      "id": "sing-shine-smile-1991021347",
+      "title": "Sing！Shine！Smile！",
+      "artist": "Liella!",
+      "category": "二偶",
+      "practiceStatus": "准备练习",
+      "addedAt": "2026-07-18",
+      "color": "blue",
+      "note": "想学会后和朋友一起合唱。",
+      "album": "Sing！Shine！Smile！ / 未来の音が聴こえる【第12話盤】",
+      "releaseDate": "2022-10-18",
+      "coverUrl": "https://p4.music.126.net/DMDXY8JAIKnZSFTpIe9K7A==/109951168958546105.jpg",
+      "neteaseId": 1991021347,
+      "neteaseUrl": "https://music.163.com/#/song?id=1991021347"
+    }
   ],
   "thoughts": [
-    { "id": "thought-idol", "songId": "idol", "date": "2026-08-03", "mood": "反复循环", "content": "把华丽的旋律拆开听，底下的推进感比想象中更冷静；每一次回到副歌都像灯一下子亮起来。" },
-    { "id": "thought-show", "songId": "show", "date": "2026-08-01", "mood": "练唱记录", "content": "它不是只靠高音取胜。节奏咬住以后，整首歌的气势才会自然长出来。" },
-    { "id": "thought-mesmerizer", "songId": "mesmerizer", "date": "2026-07-30", "mood": "新发现", "content": "越听越觉得可爱和不安是同时存在的，像一张颜色太亮的海报。" }
+    {
+      "id": "thought-アイドル-2034742057",
+      "songId": "アイドル-2034742057",
+      "date": "2026-08-02",
+      "mood": "反复循环",
+      "content": "把华丽的旋律拆开听，底下的推进感比想象中更冷静；每一次回到副歌都像灯一下子亮起来。"
+    },
+    {
+      "id": "thought-唱-2079797137",
+      "songId": "唱-2079797137",
+      "date": "2026-08-01",
+      "mood": "练唱记录",
+      "content": "它不是只靠高音取胜。节奏咬住以后，整首歌的气势才会自然长出来。"
+    },
+    {
+      "id": "thought-メズマライザー-2153390036",
+      "songId": "メズマライザー-2153390036",
+      "date": "2026-07-30",
+      "mood": "新发现",
+      "content": "越听越觉得可爱和不安是同时存在的，像一张颜色太亮的海报。"
+    }
   ]
 }

@@ -23,9 +23,10 @@ const addHeadingIds = (html, toc) => html.replace(/<h([1-6])>([\s\S]*?)<\/h\1>/g
   item.used = true
   return `<h${depth} id="${item.id}">${body}</h${depth}>`
 })
-const posts = await Promise.all(files.map(async (file) => {
+const posts = (await Promise.all(files.map(async (file) => {
   const raw = await fs.readFile(path.join(source, file), 'utf8')
   const { data, content } = matter(raw)
+  if (data.type === 'music-library') return null
   const toc = getToc(content)
   const html = addHeadingIds(marked.parse(content, { gfm: true, breaks: false }), toc)
   toc.forEach(({ used: _used, ...item }, index) => { toc[index] = item })
@@ -37,7 +38,7 @@ const posts = await Promise.all(files.map(async (file) => {
     tags: Array.isArray(data.tags) ? data.tags : [],
     math: Boolean(data.math), mermaid: Boolean(data.mermaid), toc, html, excerpt: text.slice(0, 180),
   }
-}))
+}))).filter(Boolean)
 posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 await fs.mkdir(path.join(root, 'public', 'content'), { recursive: true })
 await fs.writeFile(path.join(root, 'public', 'content', 'posts.json'), JSON.stringify(posts, null, 2))
