@@ -1,0 +1,1 @@
+export const formatDate = (date: string, compact = false) => new Intl.DateTimeFormat('en-GB', compact ? { month: 'short', day: '2-digit' } : { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(date))
