@@ -6,4 +6,5 @@ export type MusicReview = { songId: number; createdAt: string; content: string }
 export type MusicLibrary = { updatedAt: string; songs: Song[]; reviews: MusicReview[] }
 export type MemoryEntry = { date: string; content: string; images: string[] }
 export type MemoryLog = { updatedAt: string; entries: MemoryEntry[] }
-export type View = { kind: 'home' | 'categories' | 'archives' | 'tags' | 'about' | 'music' | 'media' | 'memory' | 'post'; slug?: string; anchor?: string }
+export type BlogSection = 'posts' | 'categories' | 'archives'
+export type View = { kind: 'home' | 'blog' | 'tags' | 'about' | 'music' | 'media' | 'memory' | 'post'; slug?: string; anchor?: string; section?: BlogSection }

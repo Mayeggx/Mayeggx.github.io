@@ -2,19 +2,31 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import { SiteHeader } from './components/SiteHeader'
 import { HomePage } from './pages/HomePage'
+import { BlogPage } from './pages/BlogPage'
 import { ArticlePage } from './pages/ArticlePage'
-import { ArchivePage, AboutPage, CollectionPage, EmptyPage } from './pages/StaticPages'
+import { AboutPage, CollectionPage, EmptyPage } from './pages/StaticPages'
 import { MusicPage } from './pages/MusicPage'
 import { MediaPage } from './pages/MediaPage'
 import { MemoryPage } from './pages/MemoryPage'
-import type { MemoryLog, MusicLibrary, Post, View } from './types'
+import type { BlogSection, MemoryLog, MusicLibrary, Post, View } from './types'
+
+const blogSections: BlogSection[] = ['posts', 'categories', 'archives']
 
 const parseHash = (): View => {
   if (location.hash === '#content') return { kind: 'home' }
-  const [kind, rawSlug] = (location.hash.replace(/^#\/?/, '') || 'home').split('/')
-  const [rawValue, rawAnchor] = rawSlug?.split('#') || []
-  const slug = rawValue ? decodeURIComponent(rawValue) : undefined
-  return { kind: kind as View['kind'], slug, anchor: rawAnchor ? decodeURIComponent(rawAnchor) : undefined }
+  const [route = 'home', ...segments] = (location.hash.replace(/^#\/?/, '') || 'home').split('/')
+  const values = segments.map(value => decodeURIComponent(value))
+
+  if (route === 'blog') {
+    const section = blogSections.includes(values[0] as BlogSection) ? values[0] as BlogSection : 'posts'
+    return { kind: 'blog', section, slug: section === 'categories' ? values[1] : undefined }
+  }
+  if (route === 'categories') return { kind: 'blog', section: 'categories', slug: values[0] }
+  if (route === 'archives') return { kind: 'blog', section: 'archives' }
+
+  const [slugWithAnchor = ''] = values
+  const [slug, anchor] = slugWithAnchor.split('#')
+  return { kind: route as View['kind'], slug: slug || undefined, anchor: anchor || undefined }
 }
 
 export default function App() {
@@ -37,17 +49,15 @@ export default function App() {
   const filtered = posts.filter(post => `${post.title} ${post.excerpt} ${post.categories.join(' ')}`.toLowerCase().includes(query.toLowerCase()))
 
   return <div className="site">
-    <SiteHeader view={view} post={current} dark={dark} onThemeToggle={() => setDark(value => !value)} />
-    {view.kind === 'home' && <HomePage posts={filtered} query={query} onQueryChange={setQuery} />}
+    <SiteHeader view={view} post={current} dark={dark} onThemeToggle={() => setDark(value => !value)}>{view.kind === 'home' && <HomePage posts={posts} music={music} memory={memory} />}</SiteHeader>
+    {view.kind === 'blog' && <BlogPage posts={filtered} allPosts={posts} categories={categories} section={view.section || 'posts'} activeCategory={view.slug} query={query} onQueryChange={setQuery} />}
     {view.kind === 'post' && current && <ArticlePage post={current} anchor={view.anchor} />}
     {view.kind === 'post' && !current && <EmptyPage />}
-    {view.kind === 'categories' && <CollectionPage title="Categories" subtitle="Browse notes by subject." items={categories} posts={posts} type="category" activeItem={view.slug} />}
     {view.kind === 'tags' && <CollectionPage title="Tags" subtitle="Start exploring from a keyword." items={tags} posts={posts} type="tag" activeItem={view.slug} />}
-    {view.kind === 'archives' && <ArchivePage posts={posts} />}
     {view.kind === 'about' && <AboutPage />}
     {view.kind === 'music' && <MusicPage library={music} />}
     {view.kind === 'memory' && <MemoryPage memory={memory} />}
     {view.kind === 'media' && <MediaPage />}
-    {view.kind !== 'media' && <footer><div className="container footer-inner"><span>© {new Date().getFullYear()} Mayegg's Blog</span><span>Built with React · Vite · Markdown</span></div></footer>}
+    {view.kind !== 'media' && <footer><div className="container footer-inner"><span>© {new Date().getFullYear()} Mayegg's Page</span><span>Built with React · Vite · Markdown</span></div></footer>}
   </div>
 }
