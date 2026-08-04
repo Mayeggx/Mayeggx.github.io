@@ -6,7 +6,8 @@
   "scripts": {
     "content": "node scripts/build-content.mjs",
     "music": "node scripts/build-music.mjs",
-    "prebuild": "npm run content && npm run music",
+    "memory": "node scripts/build-memory.mjs",
+    "prebuild": "npm run content && npm run music && npm run memory",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",

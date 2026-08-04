@@ -26,7 +26,7 @@ const addHeadingIds = (html, toc) => html.replace(/<h([1-6])>([\s\S]*?)<\/h\1>/g
 const posts = (await Promise.all(files.map(async (file) => {
   const raw = await fs.readFile(path.join(source, file), 'utf8')
   const { data, content } = matter(raw)
-  if (data.type === 'music-library') return null
+  if (data.type === 'music-library' || data.type === 'music-reviews' || data.type === 'memory-log') return null
   const toc = getToc(content)
   const html = addHeadingIds(marked.parse(content, { gfm: true, breaks: false }), toc)
   toc.forEach(({ used: _used, ...item }, index) => { toc[index] = item })

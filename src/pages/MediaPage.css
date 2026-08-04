@@ -1,0 +1,1 @@
+.media-page{min-height:calc(100vh - 76px);background:var(--paper)}.media-frame{display:block;width:100%;height:calc(100vh - 76px);min-height:620px;border:0;background:var(--paper)}@media(max-width:620px){.media-frame{min-height:540px}}

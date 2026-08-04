@@ -1,8 +1,9 @@
 export type TocItem = { depth: number; text: string; id: string }
 export type Post = { slug: string; title: string; date: string; categories: string[]; tags: string[]; excerpt: string; html: string; toc?: TocItem[] }
-export type MusicCategory = 'J-Pop' | 'Anisong' | '术力口' | '二偶'
 export type PracticeStatus = '熟练掌握' | '正在练习' | '曾经熟悉' | '准备练习'
-export type Song = { id: string; title: string; artist: string; category: MusicCategory; practiceStatus: PracticeStatus; addedAt: string; color: string; note?: string; album?: string; releaseDate?: string; coverUrl?: string; neteaseId?: number; neteaseUrl?: string }
-export type MusicThought = { id: string; songId: string; date: string; mood: string; content: string }
-export type MusicLibrary = { updatedAt: string; songs: Song[]; thoughts: MusicThought[] }
-export type View = { kind: 'home' | 'categories' | 'archives' | 'tags' | 'about' | 'music' | 'post'; slug?: string; anchor?: string }
+export type Song = { id: number; title: string; artist: string; tags: string[]; practiceStatus: PracticeStatus; addedAt: string; color: string; note?: string; album?: string; releaseDate?: string; coverUrl?: string; neteaseId?: number; neteaseUrl?: string }
+export type MusicReview = { songId: number; createdAt: string; content: string }
+export type MusicLibrary = { updatedAt: string; songs: Song[]; reviews: MusicReview[] }
+export type MemoryEntry = { date: string; content: string; images: string[] }
+export type MemoryLog = { updatedAt: string; entries: MemoryEntry[] }
+export type View = { kind: 'home' | 'categories' | 'archives' | 'tags' | 'about' | 'music' | 'media' | 'memory' | 'post'; slug?: string; anchor?: string }

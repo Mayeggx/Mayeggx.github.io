@@ -1,11 +1,13 @@
 {
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-04",
   "songs": [
     {
-      "id": "アイドル-2034742057",
+      "id": 1,
       "title": "アイドル",
       "artist": "YOASOBI",
-      "category": "J-Pop",
+      "tags": [
+        "J-Pop"
+      ],
       "practiceStatus": "熟练掌握",
       "addedAt": "2026-08-02",
       "color": "violet",
@@ -17,10 +19,13 @@
       "neteaseUrl": "https://music.163.com/#/song?id=2034742057"
     },
     {
-      "id": "唱-2079797137",
+      "id": 2,
       "title": "唱",
       "artist": "Ado",
-      "category": "Anisong",
+      "tags": [
+        "J-Pop",
+        "Anisong"
+      ],
       "practiceStatus": "正在练习",
       "addedAt": "2026-08-01",
       "color": "orange",
@@ -32,10 +37,13 @@
       "neteaseUrl": "https://music.163.com/#/song?id=2079797137"
     },
     {
-      "id": "怪物-1893590233",
+      "id": 3,
       "title": "怪物",
       "artist": "YOASOBI",
-      "category": "Anisong",
+      "tags": [
+        "J-Pop",
+        "Anisong"
+      ],
       "practiceStatus": "正在练习",
       "addedAt": "2026-07-26",
       "color": "mint",
@@ -47,40 +55,46 @@
       "neteaseUrl": "https://music.163.com/#/song?id=1893590233"
     },
     {
-      "id": "メズマライザー-2153390036",
+      "id": 4,
       "title": "メズマライザー (feat. 初音ミク&重音テト)",
       "artist": "サツキ / 初音ミク / 重音テト",
-      "category": "术力口",
+      "tags": [
+        "术力口"
+      ],
       "practiceStatus": "准备练习",
       "addedAt": "2026-07-30",
       "color": "sky",
       "note": "旋律很上头，想拆开练每一段。",
       "album": "メズマライザー",
       "releaseDate": "2024-05-16",
-      "coverUrl": "https://p3.music.126.net/D6OAAd5ht4AQ1GbuTTfsLA==/109951169568777751.jpg",
+      "coverUrl": "https://p4.music.126.net/D6OAAd5ht4AQ1GbuTTfsLA==/109951169568777751.jpg",
       "neteaseId": 2153390036,
       "neteaseUrl": "https://music.163.com/#/song?id=2153390036"
     },
     {
-      "id": "メルト-22709629",
+      "id": 5,
       "title": "ライン",
       "artist": "supercell",
-      "category": "术力口",
+      "tags": [
+        "术力口"
+      ],
       "practiceStatus": "熟练掌握",
       "addedAt": "2026-07-21",
       "color": "rose",
       "note": "总是很适合作为热嗓歌。",
       "album": "Supercell",
       "releaseDate": "2009-03-03",
-      "coverUrl": "https://p3.music.126.net/DiKZO3MM-MMsYhUBR3rS3Q==/805942023183935.jpg",
+      "coverUrl": "https://p4.music.126.net/DiKZO3MM-MMsYhUBR3rS3Q==/805942023183935.jpg",
       "neteaseId": 22709629,
       "neteaseUrl": "https://music.163.com/#/song?id=22709629"
     },
     {
-      "id": "start-true-dreams-1862821963",
+      "id": 6,
       "title": "START!! True dreams",
       "artist": "Liella!",
-      "category": "二偶",
+      "tags": [
+        "二偶"
+      ],
       "practiceStatus": "曾经熟悉",
       "addedAt": "2026-07-28",
       "color": "yellow",
@@ -92,41 +106,37 @@
       "neteaseUrl": "https://music.163.com/#/song?id=1862821963"
     },
     {
-      "id": "sing-shine-smile-1991021347",
-      "title": "Sing！Shine！Smile！",
+      "id": 7,
+      "title": "Sing！Shine！Smile！ 〜TV Size〜",
       "artist": "Liella!",
-      "category": "二偶",
+      "tags": [
+        "二偶"
+      ],
       "practiceStatus": "准备练习",
       "addedAt": "2026-07-18",
       "color": "blue",
       "note": "想学会后和朋友一起合唱。",
-      "album": "Sing！Shine！Smile！ / 未来の音が聴こえる【第12話盤】",
-      "releaseDate": "2022-10-18",
-      "coverUrl": "https://p4.music.126.net/DMDXY8JAIKnZSFTpIe9K7A==/109951168958546105.jpg",
-      "neteaseId": 1991021347,
-      "neteaseUrl": "https://music.163.com/#/song?id=1991021347"
+      "album": "TVアニメ『ラブライブ！スーパースター!!』2期 オリジナルサウンドトラック「Twinkle of the Superstar」【Instrumental Edition】",
+      "releaseDate": "2022-10-25",
+      "coverUrl": "https://p3.music.126.net/FZ4wnXzi4H_tDcnmqbcs5Q==/109951168018832003.jpg",
+      "neteaseId": 1994247868,
+      "neteaseUrl": "https://music.163.com/#/song?id=1994247868"
     }
   ],
-  "thoughts": [
+  "reviews": [
     {
-      "id": "thought-アイドル-2034742057",
-      "songId": "アイドル-2034742057",
-      "date": "2026-08-02",
-      "mood": "反复循环",
+      "songId": 1,
+      "createdAt": "2026-08-02T20:00:00+08:00",
       "content": "把华丽的旋律拆开听，底下的推进感比想象中更冷静；每一次回到副歌都像灯一下子亮起来。"
     },
     {
-      "id": "thought-唱-2079797137",
-      "songId": "唱-2079797137",
-      "date": "2026-08-01",
-      "mood": "练唱记录",
+      "songId": 2,
+      "createdAt": "2026-08-01T20:00:00+08:00",
       "content": "它不是只靠高音取胜。节奏咬住以后，整首歌的气势才会自然长出来。"
     },
     {
-      "id": "thought-メズマライザー-2153390036",
-      "songId": "メズマライザー-2153390036",
-      "date": "2026-07-30",
-      "mood": "新发现",
+      "songId": 4,
+      "createdAt": "2026-07-30T20:00:00+08:00",
       "content": "越听越觉得可爱和不安是同时存在的，像一张颜色太亮的海报。"
     }
   ]
